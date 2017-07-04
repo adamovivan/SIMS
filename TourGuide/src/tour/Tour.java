@@ -4,7 +4,6 @@
  * Purpose: Defines the Class Tour
  ***********************************************************************/
 package tour;
-import java.util.*;
 
 public class Tour {
    private int maxSpots;
@@ -12,23 +11,23 @@ public class Tour {
 
    public Route route;
    public TourType tourType;
-   
+
    public void showReservations() {
       // TODO: implement
    }
-   
+
    public int getMaxSpots() {
       return maxSpots;
    }
-   
+
    public void setMaxSpots(int newMaxSpots) {
       maxSpots = newMaxSpots;
    }
-   
+
    public int getAvailableSpots() {
       return availableSpots;
    }
-   
+
    public void setAvailableSpots(int newAvailableSpots) {
       availableSpots = newAvailableSpots;
    }

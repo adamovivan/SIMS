@@ -4,7 +4,6 @@
  * Purpose: Defines the Class Search
  ***********************************************************************/
 package state;
-import java.util.*;
 
 public class Search extends State {
 }

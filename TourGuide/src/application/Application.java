@@ -4,8 +4,6 @@
  * Purpose: Defines the Class Application
  ***********************************************************************/
 package application;
-import java.util.*;
-
 import role.Guide;
 import role.Tourist;
 import state.State;
@@ -18,27 +16,27 @@ public class Application {
    public java.util.Collection<Reservation> reservation;
    public java.util.Collection<Guide> guide;
    public java.util.Collection<Tourist> tourist;
-   
+
    public void showCities() {
       // TODO: implement
    }
-   
+
    public void showTours() {
       // TODO: implement
    }
-   
+
    public void showRoutes() {
       // TODO: implement
    }
-   
+
    public void showAccounts() {
       // TODO: implement
    }
-   
+
    public void addRoute() {
       // TODO: implement
    }
-   
+
    public void removeRoute() {
       // TODO: implement
    }
@@ -46,66 +44,66 @@ public class Application {
    public void addTour() {
       // TODO: implement
    }
-   
+
    public void removeTour() {
       // TODO: implement
    }
-   
+
    public void addAccount() {
       // TODO: implement
    }
-   
+
    public void removeAccount() {
       // TODO: implement
    }
-   
+
    public void addReservation() {
       // TODO: implement
    }
-   
+
    public void removeReservation() {
       // TODO: implement
    }
-   
+
    public void addCity() {
       // TODO: implement
    }
-   
+
    public void removeCity() {
       // TODO: implement
    }
-   
+
    public void addLocation() {
       // TODO: implement
    }
-   
+
    public void removeLocation() {
       // TODO: implement
    }
-   
+
    public void changeState(State newState) {
       // TODO: implement
    }
-   
-   
+
+
    public java.util.Collection<Account> getAccount() {
       if (account == null)
          account = new java.util.HashSet<Account>();
       return account;
    }
-   
+
    public java.util.Iterator getIteratorAccount() {
       if (account == null)
          account = new java.util.HashSet<Account>();
       return account.iterator();
    }
-   
+
    public void setAccount(java.util.Collection<Account> newAccount) {
       removeAllAccount();
       for (java.util.Iterator iter = newAccount.iterator(); iter.hasNext();)
          addAccount((Account)iter.next());
    }
-   
+
    public void addAccount(Account newAccount) {
       if (newAccount == null)
          return;
@@ -114,7 +112,7 @@ public class Application {
       if (!this.account.contains(newAccount))
          this.account.add(newAccount);
    }
-   
+
    public void removeAccount(Account oldAccount) {
       if (oldAccount == null)
          return;
@@ -122,30 +120,30 @@ public class Application {
          if (this.account.contains(oldAccount))
             this.account.remove(oldAccount);
    }
-   
+
    public void removeAllAccount() {
       if (account != null)
          account.clear();
    }
-   
+
    public java.util.Collection<City> getCity() {
       if (city == null)
          city = new java.util.HashSet<City>();
       return city;
    }
-   
+
    public java.util.Iterator getIteratorCity() {
       if (city == null)
          city = new java.util.HashSet<City>();
       return city.iterator();
    }
-   
+
    public void setCity(java.util.Collection<City> newCity) {
       removeAllCity();
       for (java.util.Iterator iter = newCity.iterator(); iter.hasNext();)
          addCity((City)iter.next());
    }
-   
+
    public void addCity(City newCity) {
       if (newCity == null)
          return;
@@ -154,7 +152,7 @@ public class Application {
       if (!this.city.contains(newCity))
          this.city.add(newCity);
    }
-   
+
    public void removeCity(City oldCity) {
       if (oldCity == null)
          return;
@@ -162,30 +160,30 @@ public class Application {
          if (this.city.contains(oldCity))
             this.city.remove(oldCity);
    }
-   
+
    public void removeAllCity() {
       if (city != null)
          city.clear();
    }
-   
+
    public java.util.Collection<Reservation> getReservation() {
       if (reservation == null)
          reservation = new java.util.HashSet<Reservation>();
       return reservation;
    }
-   
+
    public java.util.Iterator getIteratorReservation() {
       if (reservation == null)
          reservation = new java.util.HashSet<Reservation>();
       return reservation.iterator();
    }
-   
+
    public void setReservation(java.util.Collection<Reservation> newReservation) {
       removeAllReservation();
       for (java.util.Iterator iter = newReservation.iterator(); iter.hasNext();)
          addReservation((Reservation)iter.next());
    }
-   
+
    public void addReservation(Reservation newReservation) {
       if (newReservation == null)
          return;
@@ -194,7 +192,7 @@ public class Application {
       if (!this.reservation.contains(newReservation))
          this.reservation.add(newReservation);
    }
-   
+
    public void removeReservation(Reservation oldReservation) {
       if (oldReservation == null)
          return;
@@ -202,30 +200,30 @@ public class Application {
          if (this.reservation.contains(oldReservation))
             this.reservation.remove(oldReservation);
    }
-   
+
    public void removeAllReservation() {
       if (reservation != null)
          reservation.clear();
    }
-   
+
    public java.util.Collection<Guide> getGuide() {
       if (guide == null)
          guide = new java.util.HashSet<Guide>();
       return guide;
    }
-   
+
    public java.util.Iterator getIteratorGuide() {
       if (guide == null)
          guide = new java.util.HashSet<Guide>();
       return guide.iterator();
    }
-   
+
    public void setGuide(java.util.Collection<Guide> newGuide) {
       removeAllGuide();
       for (java.util.Iterator iter = newGuide.iterator(); iter.hasNext();)
          addGuide((Guide)iter.next());
    }
-   
+
    public void addGuide(Guide newGuide) {
       if (newGuide == null)
          return;
@@ -234,7 +232,7 @@ public class Application {
       if (!this.guide.contains(newGuide))
          this.guide.add(newGuide);
    }
-   
+
    public void removeGuide(Guide oldGuide) {
       if (oldGuide == null)
          return;
@@ -242,30 +240,30 @@ public class Application {
          if (this.guide.contains(oldGuide))
             this.guide.remove(oldGuide);
    }
-   
+
    public void removeAllGuide() {
       if (guide != null)
          guide.clear();
    }
-   
+
    public java.util.Collection<Tourist> getTourist() {
       if (tourist == null)
          tourist = new java.util.HashSet<Tourist>();
       return tourist;
    }
-   
+
    public java.util.Iterator getIteratorTourist() {
       if (tourist == null)
          tourist = new java.util.HashSet<Tourist>();
       return tourist.iterator();
    }
-   
+
    public void setTourist(java.util.Collection<Tourist> newTourist) {
       removeAllTourist();
       for (java.util.Iterator iter = newTourist.iterator(); iter.hasNext();)
          addTourist((Tourist)iter.next());
    }
-   
+
    public void addTourist(Tourist newTourist) {
       if (newTourist == null)
          return;
@@ -274,7 +272,7 @@ public class Application {
       if (!this.tourist.contains(newTourist))
          this.tourist.add(newTourist);
    }
-   
+
    public void removeTourist(Tourist oldTourist) {
       if (oldTourist == null)
          return;
@@ -282,7 +280,7 @@ public class Application {
          if (this.tourist.contains(oldTourist))
             this.tourist.remove(oldTourist);
    }
-   
+
    public void removeAllTourist() {
       if (tourist != null)
          tourist.clear();
