@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="tourNameLabel" layoutX="29.0" layoutY="18.0" prefHeight="36.0" prefWidth="335.0" text="Some Awsome Tour">
          <font>
@@ -41,7 +40,7 @@
       </Label>
       <ImageView fx:id="mainPicture" fitHeight="279.0" fitWidth="324.0" layoutX="28.0" layoutY="125.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../Desktop/novisad.jpg" />
+            <Image url="@../icons/novisad.jpg" />
          </image>
          <cursor>
             <Cursor fx:constant="DEFAULT" />
@@ -49,22 +48,22 @@
       </ImageView>
       <ImageView fx:id="galleryPicture1" fitHeight="57.0" fitWidth="73.0" layoutX="27.0" layoutY="411.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../Desktop/novisad.jpg" />
+            <Image url="@../icons/novisad.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="galleryPicture2" fitHeight="57.0" fitWidth="73.0" layoutX="109.0" layoutY="411.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../Desktop/novisad.jpg" />
+            <Image url="@../icons/novisad.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="galleryPicture3" fitHeight="57.0" fitWidth="73.0" layoutX="190.0" layoutY="411.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../Desktop/novisad.jpg" />
+            <Image url="@../icons/novisad.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="galleryPicture5" fitHeight="57.0" fitWidth="73.0" layoutX="279.0" layoutY="411.0" pickOnBounds="true">
          <image>
-            <Image url="@../../../../../Desktop/novisad.jpg" />
+            <Image url="@../icons/novisad.jpg" />
          </image>
       </ImageView>
       <Label layoutX="28.0" layoutY="479.0" text="Comments:">
@@ -75,7 +74,7 @@
       <TextArea fx:id="comments" editable="false" layoutX="29.0" layoutY="504.0" prefHeight="88.0" prefWidth="324.0" promptText="Comments will go here" />
       <ImageView fx:id="guidePicture" fitHeight="95.0" fitWidth="100.0" layoutX="364.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../Downloads/IMG_20170510_163156_036.jpg" />
+            <Image url="@../icons/user.jpg" />
          </image>
       </ImageView>
       <Label layoutX="465.0" layoutY="19.0" text="Guide:" />
