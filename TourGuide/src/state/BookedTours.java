@@ -5,7 +5,6 @@
  ***********************************************************************/
 
 package state;
-import java.util.*;
 
 public class BookedTours extends State {
 }
