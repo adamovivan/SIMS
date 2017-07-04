@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="375.0" prefWidth="504.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane prefHeight="600.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <Label fx:id="LabelStatus" layoutX="46.0" layoutY="111.0" prefHeight="17.0" prefWidth="142.0" textFill="#1eacbf" />
       <PasswordField fx:id="userName" focusTraversable="false" layoutX="48.0" layoutY="36.0" promptText="Username" style="-fx-border-color: #1e90ff;" />

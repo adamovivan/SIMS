@@ -5,5 +5,5 @@
  ***********************************************************************/
 package state;
 
-public class EditProfile extends State {
+public class EditProfileState extends State {
 }
