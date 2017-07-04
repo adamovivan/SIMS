@@ -3,7 +3,7 @@
  * Author:  PC
  * Purpose: Defines the Class Location
  ***********************************************************************/
-package application;
+package tour;
 import java.util.*;
 
 /** @pdOid 60e7319f-bbb5-4382-a892-0c1c434499d5 */

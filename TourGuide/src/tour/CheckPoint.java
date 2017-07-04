@@ -3,7 +3,7 @@
  * Author:  PC
  * Purpose: Defines the Class CheckPoint
  ***********************************************************************/
-package application;
+package tour;
 import java.util.*;
 
 /** @pdOid c8bc517c-efda-4ec3-854c-3a7100d5d122 */

@@ -3,7 +3,7 @@
  * Author:  PC
  * Purpose: Defines the Class Route
  ***********************************************************************/
-package application;
+package tour;
 import java.util.*;
 
 /** @pdOid b4b2631b-3452-485d-9540-c3326ef02465 */

@@ -3,7 +3,7 @@
  * Author:  PC
  * Purpose: Defines the Class TourType
  ***********************************************************************/
-package application;
+package tour;
 import java.util.*;
 
 /** @pdOid cba644ed-6db1-4184-9f7c-af4ece16fc10 */

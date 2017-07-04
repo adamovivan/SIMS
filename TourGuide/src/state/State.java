@@ -1,11 +1,11 @@
 /***********************************************************************
- * Module:  LogIn.java
+ * Module:  State.java
  * Author:  PC
- * Purpose: Defines the Class LogIn
+ * Purpose: Defines the Class State
  ***********************************************************************/
-package application;
+package state;
 import java.util.*;
 
-/** @pdOid cb8c36fa-20ef-49e2-8e13-dc2e02975c53 */
-public class LogIn extends State {
+/** @pdOid b32e6f17-06c4-43d1-90f5-bd63a6394c75 */
+public class State {
 }

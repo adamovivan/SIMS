@@ -3,7 +3,7 @@
  * Author:  PC
  * Purpose: Defines the Class Reservation
  ***********************************************************************/
-package application;
+package tour;
 import java.util.*;
 
 /** @pdOid a5e4ef09-351b-470c-a218-4f5c41160612 */

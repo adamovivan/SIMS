@@ -1,11 +1,11 @@
 /***********************************************************************
- * Module:  State.java
+ * Module:  TourInfo.java
  * Author:  PC
- * Purpose: Defines the Class State
+ * Purpose: Defines the Class TourInfo
  ***********************************************************************/
-package application;
+package state;
 import java.util.*;
 
-/** @pdOid b32e6f17-06c4-43d1-90f5-bd63a6394c75 */
-public class State {
+/** @pdOid c2c6fe9d-c824-4e2d-a46d-31f145bcd1fe */
+public class TourInfo extends State {
 }

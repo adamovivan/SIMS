@@ -3,8 +3,10 @@
  * Author:  PC
  * Purpose: Defines the Class Person
  ***********************************************************************/
-package application;
+package role;
 import java.util.*;
+
+import tour.City;
 
 /** @pdOid 07aa52c8-fe19-414f-a814-7c4f2a7425ad */
 public class Person {

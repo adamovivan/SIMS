@@ -1,11 +1,11 @@
 /***********************************************************************
- * Module:  GuideTours.java
+ * Module:  EditProfile.java
  * Author:  PC
- * Purpose: Defines the Class GuideTours
+ * Purpose: Defines the Class EditProfile
  ***********************************************************************/
-package application;
+package state;
 import java.util.*;
 
-/** @pdOid 0d5486c3-8a0a-40f8-9120-3da63e3416c7 */
-public class GuideTours extends State {
+/** @pdOid a09615a3-fa95-43f0-a033-7d4cdf948ad1 */
+public class EditProfile extends State {
 }

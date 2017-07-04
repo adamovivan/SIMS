@@ -3,7 +3,7 @@
  * Author:  PC
  * Purpose: Defines the Class City
  ***********************************************************************/
-package application;
+package tour;
 import java.util.*;
 
 /** @pdOid 9c032dc0-d75c-471f-b0dc-6843a4f6bac4 */

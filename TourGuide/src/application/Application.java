@@ -6,6 +6,12 @@
 package application;
 import java.util.*;
 
+import role.Guide;
+import role.Tourist;
+import state.State;
+import tour.City;
+import tour.Reservation;
+
 /** @pdOid 65c5fcd7-61d9-4aeb-96a5-5fe0cbb396af */
 public class Application {
    /** @pdRoleInfo migr=no name=Account assc=association1 coll=java.util.Collection impl=java.util.HashSet mult=0..* type=Composition */

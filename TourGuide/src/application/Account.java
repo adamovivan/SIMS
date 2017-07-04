@@ -6,6 +6,8 @@
 package application;
 import java.util.*;
 
+import role.Person;
+
 /** @pdOid 9a3aaa7e-45c3-4536-9def-49fd6f9b57ca */
 public class Account {
    /** @pdOid 4adc86d0-839f-4d0a-8349-5b45890cf5c0 */

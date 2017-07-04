@@ -3,8 +3,11 @@
  * Author:  PC
  * Purpose: Defines the Class Tourist
  ***********************************************************************/
-package application;
+package role;
 import java.util.*;
+
+import application.Account;
+import tour.Tour;
 
 /** @pdOid 42bcbc67-59a8-4182-9b98-3ae53748404e */
 public class Tourist extends Account {

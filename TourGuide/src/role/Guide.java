@@ -3,8 +3,12 @@
  * Author:  PC
  * Purpose: Defines the Class Guide
  ***********************************************************************/
-package application;
+package role;
 import java.util.*;
+
+import application.Account;
+import tour.Route;
+import tour.Tour;
 
 /** @pdOid d2047050-6120-4ee2-9f79-8454264fa701 */
 public class Guide extends Account {

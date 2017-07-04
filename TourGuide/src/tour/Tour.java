@@ -3,7 +3,7 @@
  * Author:  PC
  * Purpose: Defines the Class Tour
  ***********************************************************************/
-package application;
+package tour;
 import java.util.*;
 
 /** @pdOid 55aae2b4-abee-427f-8523-e7adb92d03ac */

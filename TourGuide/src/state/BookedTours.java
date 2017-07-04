@@ -1,11 +1,12 @@
 /***********************************************************************
- * Module:  SignUp.java
+ * Module:  BookedTours.java
  * Author:  PC
- * Purpose: Defines the Class SignUp
+ * Purpose: Defines the Class BookedTours
  ***********************************************************************/
-package application;
+
+package state;
 import java.util.*;
 
-/** @pdOid c323e4db-de75-40fa-9360-7741a3e0fba1 */
-public class SignUp extends State {
+/** @pdOid 5b45ba00-727e-4d23-a2a4-7bf2484e0405 */
+public class BookedTours extends State {
 }
