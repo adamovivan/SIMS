@@ -113,7 +113,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <TextArea fx:id="desctiptionPanel" layoutX="15.0" layoutY="180.0" prefHeight="196.0" prefWidth="172.0" promptText="Write something about you..." />
+            <TextArea fx:id="desctiptionPanel" editable="false" layoutX="15.0" layoutY="180.0" prefHeight="196.0" prefWidth="172.0" promptText="Write something about you..." />
             <Button fx:id="bookedTours" layoutX="20.0" layoutY="487.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" text="Booked Tours" />
             <Button fx:id="myTours" layoutX="19.0" layoutY="448.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="169.0" text="My Tours" />
          </children>
