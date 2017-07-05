@@ -17,13 +17,13 @@ public class Controller {
 	private Label LabelStatus;
 
 	@FXML
-	private TextField userName;
+	private TextField username;
 
 	@FXML
 	private TextField password;
 
 	public void LogIn(ActionEvent event) {
-		if(userName.getText().equals("user") && password.getText().equals("pass")) {
+		if(username.getText().equals("user") && password.getText().equals("pass")) {
 			LabelStatus.setText("Login Success");
 		} else {
 			LabelStatus.setText("Login Failed");
