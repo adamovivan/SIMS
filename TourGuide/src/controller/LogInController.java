@@ -24,7 +24,7 @@ public class LogInController {
 
 	public void logIn(ActionEvent event) {
 		
-		if(username.getText().equals("admin") && password.getText().equals("admin")) {
+		if(username.getText().equals("") && password.getText().equals("")) {
 			labelStatus.setText("Login Success");
 			Controller.getInstance().setMainViewScene();
 			
