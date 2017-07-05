@@ -9,8 +9,8 @@ import tour.City;
 public class Person {
    private String firstName;
    private String lastName;
-   private String jmbg;
-   private int address;
+   private String umcn;
+   private String address;
 
    public City city;
 
@@ -30,19 +30,19 @@ public class Person {
       lastName = newLastName;
    }
 
-   public String getJmbg() {
-      return jmbg;
+   public String getUmcn() {
+      return umcn;
    }
 
-   public void setJmbg(String newJmbg) {
-      jmbg = newJmbg;
+   public void setUmcn(String newUmcn) {
+	   umcn = newUmcn;
    }
 
-   public int getAddress() {
+   public String getAddress() {
       return address;
    }
 
-   public void setAddress(int newAddress) {
+   public void setAddress(String newAddress) {
       address = newAddress;
    }
 
