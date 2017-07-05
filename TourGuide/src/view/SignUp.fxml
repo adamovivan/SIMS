@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="518.0" prefWidth="540.0" stylesheets="@../application/signUpStyle.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane prefHeight="518.0" prefWidth="540.0" stylesheets="@../style/signUpStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
    <children>
       <ImageView fitHeight="120.0" fitWidth="127.0" layoutX="54.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -35,7 +35,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="342.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-border-color: #1e90ff;" text="Cancel" textFill="DODGERBLUE">
+      <Button layoutX="342.0" layoutY="435.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="82.0" style="-fx-border-color: #1e90ff;" text="Cancel" textFill="DODGERBLUE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
