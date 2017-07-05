@@ -35,14 +35,15 @@ public class Controller {
 	}
 
 	public void SignUp(ActionEvent event) throws IOException {
-		Parent root = FXMLLoader.load(getClass().getResource("../view/SignUp.fxml"));
-		Scene scene = new Scene(root);
-		Stage stage = new Stage();
-		scene.getStylesheets().add(getClass().getResource("signUpStyle.css").toExternalForm());
-		Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/logo.jpg"));
-		stage.getIcons().add(applicationIcon);
-		stage.setScene(scene);
-		stage.setTitle("MiTe");
-		stage.show();
+		
+//		Parent root = FXMLLoader.load(getClass().getResource("../view/SignUp.fxml"));
+//		Scene scene = new Scene(root);
+//		Stage stage = new Stage();
+//		scene.getStylesheets().add(getClass().getResource("signUpStyle.css").toExternalForm());
+//		Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/logo.jpg"));
+//		stage.getIcons().add(applicationIcon);
+//		stage.setScene(scene);
+//		stage.setTitle("MiTe");
+//		stage.show();
 	}
 }

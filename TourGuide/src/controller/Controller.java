@@ -1,7 +1,5 @@
 package controller;
 
-import java.io.IOException;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,10 +12,10 @@ public class Controller {
 	
 	private Stage primaryStage;
 	
-	private Scene sceneCurrent;
 	private Scene sceneLogIn;
 	private Scene sceneMainView;
 	private Scene sceneEditProfile;
+	private Scene sceneSignUp;
 	
 	private Controller(){}
 	
@@ -37,8 +35,13 @@ public class Controller {
 			// log in scene
 			Parent logInRoot = FXMLLoader.load(getClass().getResource("../view/LogIn.fxml"));
 			sceneLogIn = new Scene(logInRoot);
-			sceneLogIn.getStylesheets().add(getClass().getResource("../view/logIn.css").toExternalForm());
-
+			sceneLogIn.getStylesheets().add(getClass().getResource("../style/logInStyle.css").toExternalForm());
+			
+			// sign up scene
+			Parent signUpRoot = FXMLLoader.load(getClass().getResource("../view/SignUp.fxml"));
+			sceneSignUp = new Scene(signUpRoot);
+			sceneSignUp.getStylesheets().add(getClass().getResource("../style/signUpStyle.css").toExternalForm());
+			
 			// main view scene
 			Parent mainViewRoot = FXMLLoader.load(getClass().getResource("../view/MainView.fxml"));
 			sceneMainView = new Scene(mainViewRoot);
@@ -55,11 +58,22 @@ public class Controller {
 		}
 	}
 	
-	public void changeLogInScene(){
+	public void setMainViewScene(){
 		primaryStage.close();
 		primaryStage.setScene(sceneMainView);
 		primaryStage.show();
-
+	}
+	
+	public void setLogInScene(){
+		primaryStage.close();
+		primaryStage.setScene(sceneLogIn);
+		primaryStage.show();
+	}
+	
+	public void setSignUpScene(){
+		primaryStage.close();
+		primaryStage.setScene(sceneSignUp);
+		primaryStage.show();
 	}
 }
 
