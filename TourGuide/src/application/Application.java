@@ -4,6 +4,8 @@
  * Purpose: Defines the Class Application
  ***********************************************************************/
 package application;
+import java.util.Iterator;
+
 import role.Guide;
 import role.Tourist;
 import state.State;
@@ -16,6 +18,74 @@ public class Application {
    public java.util.Collection<Reservation> reservation;
    public java.util.Collection<Guide> guide;
    public java.util.Collection<Tourist> tourist;
+
+   public int updateMainView() {
+      // TODO: implement
+      return 0;
+   }
+
+   public void cehckCommentRequests() {
+      // TODO: implement
+   }
+
+   public int saveTourInfo() {
+      // TODO: implement
+      return 0;
+   }
+
+   public int sendCommentRequest() {
+      // TODO: implement
+      return 0;
+   }
+
+   public int endTour() {
+      // TODO: implement
+      return 0;
+   }
+
+   public int touristDeclined() {
+      // TODO: implement
+      return 0;
+   }
+
+   public int touristChecked() {
+      // TODO: implement
+      return 0;
+   }
+
+   public int loadTourInfo() {
+      // TODO: implement
+      return 0;
+   }
+
+   public int loadGuideTours() {
+      // TODO: implement
+      return 0;
+   }
+
+   public int loadUserInfo() {
+      // TODO: implement
+      return 0;
+   }
+
+   public int search() {
+      // TODO: implement
+      return 0;
+   }
+
+   public void clearUsernamePass() {
+      // TODO: implement
+   }
+
+   public Boolean checkLogin() {
+      // TODO: implement
+      return null;
+   }
+
+   public Boolean checkSignUp() {
+      // TODO: implement
+      return null;
+   }
 
    public void showCities() {
       // TODO: implement
@@ -100,7 +170,7 @@ public class Application {
 
    public void setAccount(java.util.Collection<Account> newAccount) {
       removeAllAccount();
-      for (java.util.Iterator iter = newAccount.iterator(); iter.hasNext();)
+      for (Iterator<Account> iter = newAccount.iterator(); iter.hasNext();)
          addAccount((Account)iter.next());
    }
 
@@ -140,7 +210,7 @@ public class Application {
 
    public void setCity(java.util.Collection<City> newCity) {
       removeAllCity();
-      for (java.util.Iterator iter = newCity.iterator(); iter.hasNext();)
+      for (Iterator<City> iter = newCity.iterator(); iter.hasNext();)
          addCity((City)iter.next());
    }
 
@@ -180,7 +250,7 @@ public class Application {
 
    public void setReservation(java.util.Collection<Reservation> newReservation) {
       removeAllReservation();
-      for (java.util.Iterator iter = newReservation.iterator(); iter.hasNext();)
+      for (Iterator<Reservation> iter = newReservation.iterator(); iter.hasNext();)
          addReservation((Reservation)iter.next());
    }
 
@@ -220,7 +290,7 @@ public class Application {
 
    public void setGuide(java.util.Collection<Guide> newGuide) {
       removeAllGuide();
-      for (java.util.Iterator iter = newGuide.iterator(); iter.hasNext();)
+      for (Iterator<Guide> iter = newGuide.iterator(); iter.hasNext();)
          addGuide((Guide)iter.next());
    }
 
@@ -260,7 +330,7 @@ public class Application {
 
    public void setTourist(java.util.Collection<Tourist> newTourist) {
       removeAllTourist();
-      for (java.util.Iterator iter = newTourist.iterator(); iter.hasNext();)
+      for (Iterator<Tourist> iter = newTourist.iterator(); iter.hasNext();)
          addTourist((Tourist)iter.next());
    }
 
