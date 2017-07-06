@@ -52,7 +52,7 @@
       </VBox>
       <VBox layoutX="206.0" layoutY="201.0" prefHeight="212.0" prefWidth="219.0">
          <children>
-            <TextField focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
+            <TextField fx:id="firstName" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
