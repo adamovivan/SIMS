@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 // Singleton
 public class Controller {
 	
-	private static Controller instance = new Controller();
+	private static Controller instance = null;
 	
 	private Stage primaryStage;
 	

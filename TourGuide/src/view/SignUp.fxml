@@ -35,7 +35,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="342.0" layoutY="435.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="82.0" style="-fx-border-color: #1e90ff;" text="Cancel" textFill="DODGERBLUE">
+      <Button layoutX="342.0" layoutY="435.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-border-color: #1e90ff;" text="Cancel" textFill="DODGERBLUE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
