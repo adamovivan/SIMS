@@ -10,10 +10,11 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		
+
+		application.Application app = application.Application.getInstance();
 		Controller controller = Controller.getInstance();
 		controller.init(primaryStage);
-		
+
 		try {
 			Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/logo.jpg"));
 		    primaryStage.getIcons().add(applicationIcon);
@@ -26,7 +27,7 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		
+
 		launch(args);
 	}
 }

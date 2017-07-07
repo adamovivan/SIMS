@@ -5,7 +5,12 @@
  ***********************************************************************/
 package tour;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class City {
+
    private String name;
    private int pttNumber;
 

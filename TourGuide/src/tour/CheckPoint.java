@@ -11,4 +11,29 @@ public class CheckPoint {
 
    public Location location;
 
+public java.util.Date getTime() {
+	return time;
+}
+
+public void setTime(java.util.Date time) {
+	this.time = time;
+}
+
+public String getDescription() {
+	return description;
+}
+
+public void setDescription(String description) {
+	this.description = description;
+}
+
+public Location getLocation() {
+	return location;
+}
+
+public void setLocation(Location location) {
+	this.location = location;
+}
+
+
 }

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogInController">
+<AnchorPane prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="labelStatus" layoutX="46.0" layoutY="111.0" prefHeight="17.0" prefWidth="142.0" textFill="#1eacbf" />
       <PasswordField fx:id="password" focusTraversable="false" layoutX="48.0" layoutY="76.0" promptText="Password" style="-fx-border-color: #1e90ff;" />
@@ -17,12 +16,12 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="132.0" layoutY="135.0" mnemonicParsing="false" onAction="#cancel" prefHeight="32.0" prefWidth="67.0" style="-fx-border-color: #1e90ff;" text="Cancel" textAlignment="CENTER" textFill="DODGERBLUE">
+      <Button fx:id="loginCancelButton" contentDisplay="CENTER" layoutX="132.0" layoutY="135.0" mnemonicParsing="false" onAction="#loginCanceled" prefHeight="32.0" prefWidth="67.0" style="-fx-border-color: #1e90ff;" text="Cancel" textAlignment="CENTER" textFill="DODGERBLUE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button contentDisplay="CENTER" layoutX="345.0" layoutY="305.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="32.0" prefWidth="73.0" style="-fx-border-color: #1e90ff;" text="Sign up" textAlignment="CENTER" textFill="DODGERBLUE">
+      <Button contentDisplay="CENTER" layoutX="345.0" layoutY="305.0" mnemonicParsing="false" onAction="#signUpClicked" prefHeight="32.0" prefWidth="73.0" style="-fx-border-color: #1e90ff;" text="Sign up" textAlignment="CENTER" textFill="DODGERBLUE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

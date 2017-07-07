@@ -4,9 +4,12 @@
  * Purpose: Defines the Class Account
  ***********************************************************************/
 package application;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
 import role.Person;
 
-
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Account {
 
    private String username;
