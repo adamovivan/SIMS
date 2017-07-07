@@ -10,7 +10,12 @@ import application.Account;
 import tour.Tour;
 
 public class Tourist extends Account {
-   public java.util.Collection<Tour> tour;
+   public Tourist(String username, String password, String description, String picture, Person person) {
+		super(username, password, description, picture, person);
+		// TODO Auto-generated constructor stub
+	}
+
+public java.util.Collection<Tour> tour;
 
    public void searchTour(ArrayList<Tour> tourList) {
       // TODO: implement

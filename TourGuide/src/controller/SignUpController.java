@@ -1,11 +1,14 @@
 package controller;
 
+import application.Account;
 import application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import role.Person;
 import state.LogIn;
 
 public class SignUpController {
@@ -14,35 +17,62 @@ public class SignUpController {
 	}
 
 	@FXML
-	public Label labelStatus;
+	private Label labelStatus;
 
 	@FXML
-	private TextField firstNameText;
+	private ImageView userPhoto;
+	
+	@FXML
+	private TextField firstName;
 
 	@FXML
-	private TextField lastNameText;
+	private TextField lastName;
 
 	@FXML
-	private TextField umcnText;
+	private TextField umcn;
 
 	@FXML
-	private TextField addressText;
+	private TextField address;
 
 	@FXML
-	private TextField usernameText;
+	private TextField username;
 
 	@FXML
-	private TextField passwordText;
+	private TextField password;
 
 	@FXML
-	private TextArea descriptionField;
+	private TextArea description;
 
 	public void register(ActionEvent event){
-		System.out.println("Register called!");
-		if(firstNameText.getText().equals("")){
+		if(firstName.getText().equals("")){
 			labelStatus.setText("Field First Name can't be empty");
 		}
-
+		else if(lastName.getText().equals("")){
+			labelStatus.setText("Field Last Name can't be empty");
+		}
+		else if(umcn.getText().equals("")){
+			labelStatus.setText("Field UMCN can't be empty");
+		}
+		else if(username.getText().equals("")){
+			labelStatus.setText("Field Username can't be empty");
+		}
+		else if(password.getText().equals("")){
+			labelStatus.setText("Field Password can't be empty");
+		}			
+		else{
+			Account account = new Account(username.getText(), password.getText(), description.getText(), "IMAGE",
+					new Person(firstName.getText(), lastName.getText(), umcn.getText(), address.getText(), null));
+			
+			// adding new account
+			Application.getInstance().account.add(account);
+			
+			// save account in file
+			Application.getInstance().dumpAccounts();
+			
+			// change scene
+			Controller.getInstance().setMainViewScene();
+		}
+	
 	}
 
 	public void cancelSignUp(ActionEvent event) {

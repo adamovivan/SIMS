@@ -5,7 +5,17 @@
  ***********************************************************************/
 package application;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
+
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import role.Guide;
 import role.Tourist;
@@ -17,11 +27,11 @@ public class Application {
 
 	public static Application instance = null;
 
-	public java.util.Collection<Account> account;
-	public java.util.Collection<City> city;
-	public java.util.Collection<Reservation> reservation;
-	public java.util.Collection<Guide> guide;
-	public java.util.Collection<Tourist> tourist;
+	public Collection<Account> account;
+	public Collection<City> city;
+	public Collection<Reservation> reservation;
+	public Collection<Guide> guide;
+	public Collection<Tourist> tourist;
 	public State state = null;
 
 	public static Application getInstance(){
@@ -31,8 +41,29 @@ public class Application {
 	}
 
 	Application(){
+		account = new ArrayList<Account>();
+		
+		init();
 	}
 
+	// TODO add method to class diagram
+	private void init(){
+		ObjectMapper accountMapper = new ObjectMapper();
+
+		try {
+			account = accountMapper.readValue(new File("data/accounts.json"), Collection.class);
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// if file is empty
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
+	
 	public int updateMainView() {
 		// TODO: implement
 		return 0;
@@ -380,5 +411,25 @@ public class Application {
 		if (tourist != null)
 			tourist.clear();
 	}
-
+	
+	// TODO add method to class diagram
+	public void dumpAccounts(){
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.enable(SerializationFeature.INDENT_OUTPUT);
+		
+		try {
+			
+			mapper.writeValue(new File("data/accounts.json"), account);
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }
