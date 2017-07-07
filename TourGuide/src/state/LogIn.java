@@ -21,5 +21,4 @@ public class LogIn extends State {
 	   System.out.println("Login exit!");
       return 0;
    }
-
 }

@@ -21,5 +21,4 @@ public class TouristMainView extends State {
       // TODO: implement
       return 0;
    }
-
 }

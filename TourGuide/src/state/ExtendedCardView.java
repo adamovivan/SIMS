@@ -21,5 +21,4 @@ public class ExtendedCardView extends State {
       // TODO: implement
       return 0;
    }
-
 }

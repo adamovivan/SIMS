@@ -21,5 +21,4 @@ public class TourInfo extends State {
       // TODO: implement
       return 0;
    }
-
 }
