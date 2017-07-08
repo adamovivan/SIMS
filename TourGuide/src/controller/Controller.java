@@ -1,7 +1,5 @@
 package controller;
 
-import javax.security.auth.login.LoginContext;
-
 import application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,14 +12,15 @@ public class Controller {
 
 	private static Controller instance = null;
 
-	private Stage primaryStage;
+	public Stage primaryStage;
 
-	private Scene sceneLogIn;
-	private Scene sceneMainView;
-	private Scene sceneEditProfile;
-	private Scene sceneSignUp;
+	public Scene sceneLogIn;
+	public Scene sceneMainView;
+	public Scene sceneEditProfile;
+	public Scene sceneSignUp;
 
-	private Controller(){}
+	private Controller(){
+	}
 
 	public static Controller getInstance() {
 	      if(instance == null) {
@@ -51,17 +50,23 @@ public class Controller {
 			sceneSignUp.getStylesheets().add(getClass().getResource("../style/signUpStyle.css").toExternalForm());
 
 			// main view scene
-			Parent mainViewRoot = FXMLLoader.load(getClass().getResource("../view/MainView.fxml"));
+			FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("../view/MainView.fxml"));
+			mainLoader.setController(new MainController());
+			Parent mainViewRoot = mainLoader.load();
 			sceneMainView = new Scene(mainViewRoot);
 
 			// edit profile scene
-			Parent editProfileRoot = FXMLLoader.load(getClass().getResource("../view/EditProfile.fxml"));
+			FXMLLoader editProfileLoader = new FXMLLoader(getClass().getResource("../view/MainView.fxml"));
+			editProfileLoader.setController(new EditProfileController());
+			Parent editProfileRoot = editProfileLoader.load();
 			sceneEditProfile = new Scene(editProfileRoot);
+
 
 			// first scene set
 			primaryStage.setScene(sceneLogIn);
 			// initial state
 			Application.getInstance().setState(new LogIn());
+
 
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -85,7 +90,16 @@ public class Controller {
 		primaryStage.setScene(sceneSignUp);
 		primaryStage.show();
 	}
+
+	public void setEditProfileScene(){
+		primaryStage.close();
+		primaryStage.setScene(sceneEditProfile);
+		primaryStage.show();
+	}
 }
+
+
+
 
 
 

@@ -42,7 +42,7 @@ public class Application {
 
 	Application(){
 		account = new ArrayList<Account>();
-		
+
 		init();
 	}
 
@@ -61,9 +61,9 @@ public class Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+
 	}
-	
+
 	public int updateMainView() {
 		// TODO: implement
 		return 0;
@@ -200,7 +200,7 @@ public class Application {
 	public void changeState(State newState) {
 		this.state.exit();
 		this.state = newState;
-		this.state.doo();
+		this.state.entry();
 	}
 
 	public State getState() {
@@ -209,7 +209,7 @@ public class Application {
 
 	public void setState(State state) {
 		this.state = state;
-		this.state.doo();					// since it is initial state
+		this.state.entry();					// since it is initial state
 	}
 
 	public java.util.Collection<Account> getAccount() {
@@ -411,14 +411,14 @@ public class Application {
 		if (tourist != null)
 			tourist.clear();
 	}
-	
+
 	// TODO add method to class diagram
 	public void dumpAccounts(){
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.enable(SerializationFeature.INDENT_OUTPUT);
-		
+
 		try {
-			
+
 			mapper.writeValue(new File("data/accounts.json"), account);
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
@@ -431,5 +431,5 @@ public class Application {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

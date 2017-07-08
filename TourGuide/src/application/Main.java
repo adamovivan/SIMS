@@ -16,7 +16,7 @@ public class Main extends Application {
 		controller.init(primaryStage);
 
 		try {
-			Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/logo.jpg"));
+			Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/logo.png"));
 		    primaryStage.getIcons().add(applicationIcon);
 			primaryStage.setTitle("MiTe");
 			primaryStage.show();

@@ -7,19 +7,19 @@
 package state;
 
 public class GuideMainView extends State {
-   public int doo() {
-      // TODO: implement
-      return 0;
-   }
+	public int doo() {
+		// TODO: implement
+		return 0;
+	}
 
-   public int entry() {
-      // TODO: implement
-      return 0;
-   }
+	public int entry() {
+		System.out.println("GuideMain entry");
+		return 0;
+	}
 
-   public int exit() {
-      // TODO: implement
-      return 0;
-   }
+	public int exit() {
+		System.out.println("GuideMain exit");
+		return 0;
+	}
 
 }
