@@ -62,7 +62,7 @@ public class Controller {
 
 			// edit profile scene
 			EditProfileController editProfileCtrl = EditProfileController.getInstance();
-			FXMLLoader editProfileLoader = new FXMLLoader(getClass().getResource("../view/MainView.fxml"));
+			FXMLLoader editProfileLoader = new FXMLLoader(getClass().getResource("../view/EditProfile.fxml"));
 			editProfileLoader.setController(editProfileCtrl);
 			Parent editProfileRoot = editProfileLoader.load();
 			sceneEditProfile = new Scene(editProfileRoot);

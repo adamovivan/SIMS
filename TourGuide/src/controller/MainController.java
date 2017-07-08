@@ -3,6 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import state.EditProfile;
 
 public class MainController implements Initializable{
 
@@ -76,6 +78,9 @@ public class MainController implements Initializable{
 	@FXML
 	public TextArea descriptionPanel;
 
+	@FXML
+	public ImageView userImageOverlay;
+
 	ObservableList<String> searchForList = FXCollections.observableArrayList("City","Place","Tour","Guide");
 	ObservableList<String> sortByList = FXCollections.observableArrayList("Most Popular","Newest","Oldest");
 	SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 99, 1);
@@ -106,8 +111,8 @@ public class MainController implements Initializable{
 		System.out.print("Date picker:");
 		System.out.println(startDatePicker.getValue());
 
-
-
+		// user image click -> edit profile window
+		userImageOverlay.setOnMouseClicked((event) -> {editUserProfileClicked();});
 
 	}
 
@@ -119,5 +124,9 @@ public class MainController implements Initializable{
 		System.out.println(sortByCombo.getValue());
 	}
 
+	public void editUserProfileClicked(){
+		Controller.getInstance().setEditProfileScene();
+		Application.getInstance().changeState(new EditProfile());
+	}
 
 }

@@ -14,11 +14,13 @@ public class EditProfile extends State {
 
    public int entry() {
       // TODO: implement
+	   System.out.println("Edit profile entry!");
+	   System.out.println("Load existing profile info here Adame!");
       return 0;
    }
 
    public int exit() {
-      // TODO: implement
+      System.out.println("Edit profile exit!");
       return 0;
    }
 

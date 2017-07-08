@@ -28,8 +28,11 @@ import state.SignUp;
 public class SignUpController implements Initializable {
 
 	public static SignUpController instance = null;
+
 	private static double xOffset = 0;
     private static double yOffset = 0;
+
+    private String imageURI;
 
 	public static SignUpController getInstance(){
 		if(instance == null)
@@ -113,7 +116,8 @@ public class SignUpController implements Initializable {
 		File selected = fc.showOpenDialog(null);
 
 		if(selected != null){
-			userPhoto.setImage(new Image(selected.toURI().toString()));
+			imageURI = selected.toURI().toString();
+			userPhoto.setImage(new Image(imageURI));
 		}
 		else{
 			System.out.println("File not valid!");
@@ -126,7 +130,7 @@ public class SignUpController implements Initializable {
 	}
 
 	public void registered(){
-		Account account = new Account(username.getText(), password.getText(), description.getText(), "IMAGE",
+		Account account = new Account(username.getText(), password.getText(), description.getText(), imageURI,
 				new Person(firstName.getText(), lastName.getText(), umcn.getText(), address.getText(), null));
 
 		// adding new account

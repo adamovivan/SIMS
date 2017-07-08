@@ -65,6 +65,14 @@ public class Application {
 
 	}
 
+	public Account getAccountByUsername(String userName){
+		for (Account a : accounts) {
+			if(a.getUsername().equals(userName))
+				return a;
+	    }
+		return null;
+	}
+
 	public int updateMainView() {
 		// TODO: implement
 		return 0;
