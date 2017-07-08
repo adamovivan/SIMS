@@ -5,10 +5,24 @@
  ***********************************************************************/
 package tour;
 
+import java.util.Collection;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Route {
+
    public java.util.Collection<CheckPoint> checkPoint;
 
-   public void defineSchedule() {
+   public Route(){
+   }
+
+   public Route(Collection<CheckPoint> checkPoint) {
+	this.checkPoint = checkPoint;
+}
+
+public void defineSchedule() {
       // TODO: implement
    }
 

@@ -5,6 +5,10 @@
  ***********************************************************************/
 package tour;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class CheckPoint {
    private java.util.Date time;
    private String description;

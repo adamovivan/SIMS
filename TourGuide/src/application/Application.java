@@ -23,16 +23,18 @@ import role.Tourist;
 import state.State;
 import tour.City;
 import tour.Reservation;
+import tour.Tour;
 
 public class Application {
 
 	public static Application instance = null;
 
 	public Collection<Account> accounts;
-	public Collection<City> city;
-	public Collection<Reservation> reservation;
-	public Collection<Guide> guide;
-	public Collection<Tourist> tourist;
+	public Collection<Tour> tours;
+	public Collection<City> cities;
+	public Collection<Reservation> reservations;
+	public Collection<Guide> guides;
+	public Collection<Tourist> tourists;
 	public State state = null;
 
 	public static Application getInstance(){
@@ -43,6 +45,11 @@ public class Application {
 
 	Application(){
 		accounts = new ArrayList<Account>();
+		tours = new ArrayList<Tour>();
+		cities = new ArrayList<City>();
+		reservations = new ArrayList<Reservation>();
+		guides = new ArrayList<Guide>();
+		tourists = new ArrayList<Tourist>();
 
 		init();
 	}
@@ -51,18 +58,38 @@ public class Application {
 	private void init(){
 		ObjectMapper accountMapper = new ObjectMapper();
 
+			try {
+				accounts = accountMapper.readValue(new File("data/accounts.json"), accounts.getClass());
+
+			} catch (JsonParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		readTours();
+
+	}
+
+	private void readTours() {
+		ObjectMapper toursMapper = new ObjectMapper();
+		ArrayList<Tour> temp = null;
 		try {
-			accounts = accountMapper.readValue(new File("data/accounts.json"), Collection.class);
-		} catch (JsonParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			// if file is empty
+			temp = (ArrayList<Tour>) toursMapper.readValue(new File("data/tours.json"), temp.getClass());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		for(Object o : temp){
+			Tour t = new Tour();
+			t = toursMapper.convertValue(o, Tour.class);
+			tours.add(t);
+		}
 	}
 
 	public Account getAccountByUsername(String userName){
@@ -262,15 +289,15 @@ public class Application {
 	}
 
 	public java.util.Collection<City> getCity() {
-		if (city == null)
-			city = new java.util.HashSet<City>();
-		return city;
+		if (cities == null)
+			cities = new java.util.HashSet<City>();
+		return cities;
 	}
 
 	public java.util.Iterator getIteratorCity() {
-		if (city == null)
-			city = new java.util.HashSet<City>();
-		return city.iterator();
+		if (cities == null)
+			cities = new java.util.HashSet<City>();
+		return cities.iterator();
 	}
 
 	public void setCity(java.util.Collection<City> newCity) {
@@ -282,35 +309,35 @@ public class Application {
 	public void addCity(City newCity) {
 		if (newCity == null)
 			return;
-		if (this.city == null)
-			this.city = new java.util.HashSet<City>();
-		if (!this.city.contains(newCity))
-			this.city.add(newCity);
+		if (this.cities == null)
+			this.cities = new java.util.HashSet<City>();
+		if (!this.cities.contains(newCity))
+			this.cities.add(newCity);
 	}
 
 	public void removeCity(City oldCity) {
 		if (oldCity == null)
 			return;
-		if (this.city != null)
-			if (this.city.contains(oldCity))
-				this.city.remove(oldCity);
+		if (this.cities != null)
+			if (this.cities.contains(oldCity))
+				this.cities.remove(oldCity);
 	}
 
 	public void removeAllCity() {
-		if (city != null)
-			city.clear();
+		if (cities != null)
+			cities.clear();
 	}
 
 	public java.util.Collection<Reservation> getReservation() {
-		if (reservation == null)
-			reservation = new java.util.HashSet<Reservation>();
-		return reservation;
+		if (reservations == null)
+			reservations = new java.util.HashSet<Reservation>();
+		return reservations;
 	}
 
 	public java.util.Iterator getIteratorReservation() {
-		if (reservation == null)
-			reservation = new java.util.HashSet<Reservation>();
-		return reservation.iterator();
+		if (reservations == null)
+			reservations = new java.util.HashSet<Reservation>();
+		return reservations.iterator();
 	}
 
 	public void setReservation(java.util.Collection<Reservation> newReservation) {
@@ -322,35 +349,35 @@ public class Application {
 	public void addReservation(Reservation newReservation) {
 		if (newReservation == null)
 			return;
-		if (this.reservation == null)
-			this.reservation = new java.util.HashSet<Reservation>();
-		if (!this.reservation.contains(newReservation))
-			this.reservation.add(newReservation);
+		if (this.reservations == null)
+			this.reservations = new java.util.HashSet<Reservation>();
+		if (!this.reservations.contains(newReservation))
+			this.reservations.add(newReservation);
 	}
 
 	public void removeReservation(Reservation oldReservation) {
 		if (oldReservation == null)
 			return;
-		if (this.reservation != null)
-			if (this.reservation.contains(oldReservation))
-				this.reservation.remove(oldReservation);
+		if (this.reservations != null)
+			if (this.reservations.contains(oldReservation))
+				this.reservations.remove(oldReservation);
 	}
 
 	public void removeAllReservation() {
-		if (reservation != null)
-			reservation.clear();
+		if (reservations != null)
+			reservations.clear();
 	}
 
 	public java.util.Collection<Guide> getGuide() {
-		if (guide == null)
-			guide = new java.util.HashSet<Guide>();
-		return guide;
+		if (guides == null)
+			guides = new java.util.HashSet<Guide>();
+		return guides;
 	}
 
 	public java.util.Iterator getIteratorGuide() {
-		if (guide == null)
-			guide = new java.util.HashSet<Guide>();
-		return guide.iterator();
+		if (guides == null)
+			guides = new java.util.HashSet<Guide>();
+		return guides.iterator();
 	}
 
 	public void setGuide(java.util.Collection<Guide> newGuide) {
@@ -362,35 +389,35 @@ public class Application {
 	public void addGuide(Guide newGuide) {
 		if (newGuide == null)
 			return;
-		if (this.guide == null)
-			this.guide = new java.util.HashSet<Guide>();
-		if (!this.guide.contains(newGuide))
-			this.guide.add(newGuide);
+		if (this.guides == null)
+			this.guides = new java.util.HashSet<Guide>();
+		if (!this.guides.contains(newGuide))
+			this.guides.add(newGuide);
 	}
 
 	public void removeGuide(Guide oldGuide) {
 		if (oldGuide == null)
 			return;
-		if (this.guide != null)
-			if (this.guide.contains(oldGuide))
-				this.guide.remove(oldGuide);
+		if (this.guides != null)
+			if (this.guides.contains(oldGuide))
+				this.guides.remove(oldGuide);
 	}
 
 	public void removeAllGuide() {
-		if (guide != null)
-			guide.clear();
+		if (guides != null)
+			guides.clear();
 	}
 
 	public java.util.Collection<Tourist> getTourist() {
-		if (tourist == null)
-			tourist = new java.util.HashSet<Tourist>();
-		return tourist;
+		if (tourists == null)
+			tourists = new java.util.HashSet<Tourist>();
+		return tourists;
 	}
 
 	public java.util.Iterator getIteratorTourist() {
-		if (tourist == null)
-			tourist = new java.util.HashSet<Tourist>();
-		return tourist.iterator();
+		if (tourists == null)
+			tourists = new java.util.HashSet<Tourist>();
+		return tourists.iterator();
 	}
 
 	public void setTourist(java.util.Collection<Tourist> newTourist) {
@@ -402,23 +429,23 @@ public class Application {
 	public void addTourist(Tourist newTourist) {
 		if (newTourist == null)
 			return;
-		if (this.tourist == null)
-			this.tourist = new java.util.HashSet<Tourist>();
-		if (!this.tourist.contains(newTourist))
-			this.tourist.add(newTourist);
+		if (this.tourists == null)
+			this.tourists = new java.util.HashSet<Tourist>();
+		if (!this.tourists.contains(newTourist))
+			this.tourists.add(newTourist);
 	}
 
 	public void removeTourist(Tourist oldTourist) {
 		if (oldTourist == null)
 			return;
-		if (this.tourist != null)
-			if (this.tourist.contains(oldTourist))
-				this.tourist.remove(oldTourist);
+		if (this.tourists != null)
+			if (this.tourists.contains(oldTourist))
+				this.tourists.remove(oldTourist);
 	}
 
 	public void removeAllTourist() {
-		if (tourist != null)
-			tourist.clear();
+		if (tourists != null)
+			tourists.clear();
 	}
 
 	// TODO add method to class diagram

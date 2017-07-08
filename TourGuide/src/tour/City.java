@@ -14,7 +14,15 @@ public class City {
    private String name;
    private int pttNumber;
 
-   public String getName() {
+   public City(){
+   }
+
+   public City(String name, int pttNumber) {
+	this.name = name;
+	this.pttNumber = pttNumber;
+}
+
+public String getName() {
       return name;
    }
 

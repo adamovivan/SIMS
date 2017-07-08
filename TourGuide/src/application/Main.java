@@ -1,6 +1,9 @@
 package application;
 
+import java.io.File;
+
 import controller.Controller;
+import data.TestData;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -13,7 +16,13 @@ public class Main extends Application {
 
 		application.Application app = application.Application.getInstance();
 		Controller controller = Controller.getInstance();
+		File f = new File("data/accounts.json");
+		if(!f.exists())
+			System.out.println("NO FILE!");
 		controller.init(primaryStage);
+		//TestData t = new TestData();
+		//t.dumpData();
+
 
 		try {
 			Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/logo.png"));
