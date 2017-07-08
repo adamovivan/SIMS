@@ -107,4 +107,12 @@ public class Tour {
 		availableSpots = newAvailableSpots;
 	}
 
+	@Override
+	public String toString() {
+		return "Tour [maxSpots=" + maxSpots + ", availableSpots=" + availableSpots + ", upVotes=" + upVotes
+				+ ", downVotes=" + downVotes + ", guide=" + guide + ", tourName=" + tourName + ", route=" + route
+				+ ", tourType=" + tourType + "]";
+	}
+
+	
 }

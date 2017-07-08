@@ -59,17 +59,20 @@ public class Application {
 	// TODO add method to class diagram
 	private void init(){
 		ObjectMapper accountMapper = new ObjectMapper();
+		ObjectMapper toursMapper = new ObjectMapper();
 
 			try {
 				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
-
+				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
+				
+				System.out.println(tours.toString());
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (JsonMappingException e) {
 				
 				// if file is empty
-				//e.printStackTrace();
+				e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -82,12 +85,20 @@ public class Application {
 	private void readTours() {
 		ObjectMapper toursMapper = new ObjectMapper();
 		ArrayList<Tour> temp = null;
+		
 		try {
 			temp = (ArrayList<Tour>) toursMapper.readValue(new File("data/tours.json"), temp.getClass());
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		for(Object o : temp){
 			Tour t = new Tour();
 			t = toursMapper.convertValue(o, Tour.class);

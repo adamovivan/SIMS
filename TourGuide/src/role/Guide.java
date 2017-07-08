@@ -16,6 +16,8 @@ import tour.Tour;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Guide extends Account {
+	
+	public Guide(){}
 
 	public Guide(String username, String password, String description, String picture, Person person) {
 		super(username, password, description, picture, person);
@@ -23,7 +25,7 @@ public class Guide extends Account {
 	}
 
 	public java.util.Collection<Route> route;
-
+	
 	public void makeTour(ArrayList<Tour> tours) {
 		// TODO: implement
 	}
@@ -36,12 +38,6 @@ public class Guide extends Account {
 		if (route == null)
 			route = new java.util.HashSet<Route>();
 		return route;
-	}
-
-	public java.util.Iterator getIteratorRoute() {
-		if (route == null)
-			route = new java.util.HashSet<Route>();
-		return route.iterator();
 	}
 
 	public void setRoute(java.util.Collection<Route> newRoute) {
@@ -72,4 +68,10 @@ public class Guide extends Account {
 			route.clear();
 	}
 
+	@Override
+	public String toString() {
+		return "Guide [route=" + route + "]";
+	}
+
+	
 }
