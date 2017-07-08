@@ -38,7 +38,8 @@ public class Application {
 	public Collection<Guide> guides;
 	public Collection<Tourist> tourists;
 	public State state = null;
-
+	public Account user;
+	
 	public static Application getInstance(){
 		if(instance == null)
 			instance = new Application();
@@ -65,7 +66,6 @@ public class Application {
 				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
 				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
 				
-				System.out.println(tours.toString());
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

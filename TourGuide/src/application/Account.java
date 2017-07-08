@@ -66,4 +66,20 @@ public String getUsername() {
       // TODO: implement
    }
 
+
+	public Person getPerson() {
+		return person;
+	}
+	
+	public void setPerson(Person person) {
+		this.person = person;
+	}
+	
+	@Override
+	public String toString() {
+		return "Account [username=" + username + ", password=" + password + ", description=" + description + ", picture="
+				+ picture + ", person=" + person + "]";
+	}
+
+   
 }

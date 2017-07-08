@@ -81,6 +81,7 @@ public class Controller {
 
 	public void setMainViewScene(){
 		primaryStage.close();
+		MainController.getInstance().setProfile();
 		primaryStage.setScene(sceneMainView);
 		primaryStage.show();
 	}
