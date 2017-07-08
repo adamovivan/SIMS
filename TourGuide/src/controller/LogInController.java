@@ -1,8 +1,10 @@
 package controller;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import application.Account;
 import application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -47,19 +49,36 @@ public class LogInController implements Initializable{
 
 	public void logIn(ActionEvent event) {
 
-		if(Application.getInstance().checkLogin(username.getText(), password.getText()))
+		if(checkLogin())
 			loginValid();
 		else
 			loginFail();
 	}
 
+	public boolean checkLogin() {
+		String username = this.username.getText();
+		String password = this.password.getText();
+		
+		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().accounts;
+		
+		if(username.equals("") && password.equals(""))
+			return true;
+
+		for(Account account : accounts){
+			if(username.equals(account.getUsername()) && password.equals(account.getPassword())){
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 	public void loginFail(){
 		labelStatus.setText("Login Failed");
 		Application.getInstance().changeState(new LogIn());
 	}
 
 	public void loginValid(){
-		labelStatus.setText("Login Success");			// hard to see actually xD
 		Controller.getInstance().setMainViewScene();
 		// if user is Guide (set conditions)
 		if(true){

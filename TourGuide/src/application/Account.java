@@ -18,6 +18,8 @@ public class Account {
    private String picture;
 
    public Person person;
+   
+   public Account(){}
 
    public Account(String username, String password, String description, String picture, Person person) {
 	super();

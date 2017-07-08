@@ -1,0 +1,13 @@
+[ {
+  "username" : "pera123",
+  "password" : "perar",
+  "description" : "",
+  "picture" : null,
+  "person" : {
+    "firstName" : "Pera",
+    "lastName" : "Peric",
+    "umcn" : "12345",
+    "address" : "",
+    "city" : null
+  }
+} ]

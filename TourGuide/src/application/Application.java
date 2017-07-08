@@ -10,9 +10,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -59,37 +61,37 @@ public class Application {
 		ObjectMapper accountMapper = new ObjectMapper();
 
 			try {
-				accounts = accountMapper.readValue(new File("data/accounts.json"), Collection.class);
+				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
 
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
-				//e.printStackTrace();
+				e.printStackTrace();
 			} catch (JsonMappingException e) {
-				// TODO Auto-generated catch block
+				
+				// if file is empty
 				//e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				//e.printStackTrace();
+				e.printStackTrace();
 			}
-		readTours();
+
+		//readTours();
+
 	}
 
 	private void readTours() {
 		ObjectMapper toursMapper = new ObjectMapper();
+		ArrayList<Tour> temp = null;
 		try {
-			File f = new File("data/tours.json");
-			if(f.length() != 0){
-				ArrayList<Tour> temp = null;
-				temp = toursMapper.readValue(f, ArrayList.class);
-				for(Object o : temp){
-					Tour t = new Tour();
-					t = toursMapper.convertValue(o, Tour.class);
-					tours.add(t);
-				}
-			}
+			temp = (ArrayList<Tour>) toursMapper.readValue(new File("data/tours.json"), temp.getClass());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		for(Object o : temp){
+			Tour t = new Tour();
+			t = toursMapper.convertValue(o, Tour.class);
+			tours.add(t);
 		}
 	}
 
@@ -157,12 +159,6 @@ public class Application {
 
 	public void clearUsernamePass() {
 		SignUpController.getInstance().clearUserPass();
-	}
-
-	public boolean checkLogin(String username, String password) {
-		if(username.equals("") && password.equals(""))
-			return true;
-		return false;
 	}
 
 	public Boolean checkSignUp() {
