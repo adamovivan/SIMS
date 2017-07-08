@@ -1,13 +1,18 @@
 package controller;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.ResourceBundle;
 
 import application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -19,6 +24,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import state.EditProfile;
+import tour.Tour;
 
 public class MainController implements Initializable{
 
@@ -108,12 +114,30 @@ public class MainController implements Initializable{
 
 		//dates
 		startDatePicker.onActionProperty();
-		System.out.print("Date picker:");
-		System.out.println(startDatePicker.getValue());
 
 		// user image click -> edit profile window
 		userImageOverlay.setOnMouseClicked((event) -> {editUserProfileClicked();});
 
+		// initialize most popular destinations
+		loadCards(Application.getInstance().tours);
+
+	}
+
+	public void loadCards(Collection<Tour> tours){
+		vbox.getChildren().clear();
+		for (Tour t : tours) {
+			CardController cardCtrl = new CardController();
+			FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("../view/card.fxml"));
+			cardLoader.setController(cardCtrl);
+			Parent cardRoot = null;
+			try {
+				cardRoot = cardLoader.load();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			cardCtrl.setData(t);
+			vbox.getChildren().add(cardRoot);
+		}
 	}
 
 	public void searchForChanged(){

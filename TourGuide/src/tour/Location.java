@@ -12,12 +12,25 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 public class Location {
 	private String name;
 
+	Location() {
+	}
+
+	public Location(String name) {
+		super();
+		this.name = name;
+	}
+
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String newName) {
 		name = newName;
+	}
+
+	@Override
+	public String toString() {
+		return "Location [name=" + name + "]";
 	}
 
 }

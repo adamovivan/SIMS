@@ -50,4 +50,10 @@ public class CheckPoint {
 		this.location = location;
 	}
 
+	@Override
+	public String toString() {
+		return "CheckPoint [time=" + time + ", description=" + description + ", location=" + location + "]";
+	}
+
+
 }

@@ -38,4 +38,9 @@ public class City {
 		pttNumber = newPttNumber;
 	}
 
+	@Override
+	public String toString() {
+		return "City [name=" + name + ", pttNumber=" + pttNumber + "]";
+	}
+
 }
