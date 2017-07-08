@@ -18,8 +18,17 @@ public class Person {
    private String address;
 
    public City city;
+   
+   public Person(String firstName, String lastName, String umcn, String address, City city) {
+	super();
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.umcn = umcn;
+	this.address = address;
+	this.city = city;
+}
 
-   public String getFirstName() {
+public String getFirstName() {
       return firstName;
    }
 

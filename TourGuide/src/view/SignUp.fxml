@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="518.0" prefWidth="540.0" stylesheets="@../style/signUpStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="518.0" prefWidth="540.0" stylesheets="@../style/signUpStyle.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="userPhoto" fitHeight="120.0" fitWidth="127.0" layoutX="54.0" layoutY="20.0" onMouseClicked="#changeUserPicture" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -26,7 +26,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </ImageView>
-      <TextArea fx:id="descriptionField" layoutX="201.0" layoutY="20.0" prefHeight="120.0" prefWidth="219.0" promptText="Description..." style="-fx-border-color: #1e90ff;" />
+      <TextArea fx:id="description" focusTraversable="false" layoutX="201.0" layoutY="20.0" prefHeight="120.0" prefWidth="219.0" promptText="Description..." style="-fx-border-color: #1e90ff;" />
       <Button fx:id="registerButton" layoutX="248.0" layoutY="435.0" mnemonicParsing="false" onAction="#register" prefHeight="25.0" prefWidth="82.0" style="-fx-border-color: #1e90ff;" text="Register" textFill="DODGERBLUE">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -48,37 +48,38 @@
       </VBox>
       <VBox layoutX="206.0" layoutY="201.0" prefHeight="212.0" prefWidth="219.0">
          <children>
-            <TextField fx:id="firstNameText" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
+            <TextField fx:id="firstName" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="lastNameText" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
+            <TextField fx:id="lastName" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="umcnText" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
+            <TextField fx:id="umcn" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="addressText" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
+            <TextField fx:id="address" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="usernameText" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
+            <TextField fx:id="username" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="passwordText" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
+            <TextField fx:id="password" focusTraversable="false" prefHeight="25.0" prefWidth="219.0" style="-fx-border-color: #1e90ff;">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
          </children>
       </VBox>
+      <Label fx:id="labelStatus" layoutX="248.0" layoutY="415.0" prefHeight="17.0" prefWidth="176.0" textFill="RED" />
    </children>
 </AnchorPane>

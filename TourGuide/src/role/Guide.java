@@ -12,7 +12,12 @@ import tour.Tour;
 
 
 public class Guide extends Account {
-   public java.util.Collection<Route> route;
+   public Guide(String username, String password, String description, String picture, Person person) {
+		super(username, password, description, picture, person);
+		// TODO Auto-generated constructor stub
+	}
+
+public java.util.Collection<Route> route;
 
    public void makeTour(ArrayList<Tour> tours) {
       // TODO: implement
