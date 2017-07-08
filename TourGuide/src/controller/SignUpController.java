@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -110,10 +111,14 @@ public class SignUpController implements Initializable {
 		fc.getExtensionFilters().add(new ExtensionFilter("JPG","*.jpg"));
 		fc.getExtensionFilters().add(new ExtensionFilter("PNG","*.png"));
 		File selected = fc.showOpenDialog(null);
-		if(selected != null)
-			userPhoto.setImage(new Image(selected.getAbsolutePath()));
-		else
+
+		if(selected != null){
+			userPhoto.setImage(new Image(selected.toURI().toString()));
+		}
+		else{
 			System.out.println("File not valid!");
+		}
+
 	}
 
 	public void signUpFail(){
