@@ -6,6 +6,8 @@
 
 package state;
 
+import application.Application;
+
 public class SignUp extends State {
    public int doo() {
       System.out.println("Signup do!");
@@ -14,6 +16,7 @@ public class SignUp extends State {
 
    public int entry() {
       System.out.println("Signup entry!");
+      Application.getInstance().clearUsernamePass();
       return 0;
    }
 

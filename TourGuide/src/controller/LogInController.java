@@ -9,12 +9,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import state.GuideMainView;
 import state.LogIn;
 import state.SignUp;
 import state.TouristMainView;
 
 public class LogInController implements Initializable{
+
+	public static LogInController instance = null;
+
+	public static LogInController getInstance(){
+		if(instance == null)
+			instance = new LogInController();
+		return instance;
+	}
 
 	public LogInController() {
 	}
@@ -27,6 +36,9 @@ public class LogInController implements Initializable{
 
 	@FXML
 	private TextField password;
+
+	@FXML
+	private AnchorPane dragPane;
 
 	public void logIn(ActionEvent event) {
 

@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.File;
+
 import application.Account;
 import application.Application;
 import javafx.event.ActionEvent;
@@ -8,12 +10,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import role.Person;
 import state.LogIn;
 import state.SignUp;
 
 public class SignUpController {
+
+	public static SignUpController instance = null;
+
+	public static SignUpController getInstance(){
+		if(instance == null)
+			instance = new SignUpController();
+		return instance;
+	}
 
 	public SignUpController() {
 	}
@@ -49,23 +61,30 @@ public class SignUpController {
 	private Button registerButton;
 
 	public void register(ActionEvent event){
+		if(registration())
+			registered();
+		else
+			signUpFail();
+	}
+
+	public boolean registration(){
 		if(firstName.getText().equals("")){
-			labelStatus.setText("Field First Name can't be empty"); signUpFail();
+			labelStatus.setText("Field First Name can't be empty"); return false;
 		}
 		else if(lastName.getText().equals("")){
-			labelStatus.setText("Field Last Name can't be empty"); signUpFail();
+			labelStatus.setText("Field Last Name can't be empty"); return false;
 		}
 		else if(umcn.getText().equals("")){
-			labelStatus.setText("Field UMCN can't be empty"); signUpFail();
+			labelStatus.setText("Field UMCN can't be empty"); return false;
 		}
 		else if(username.getText().equals("")){
-			labelStatus.setText("Field Username can't be empty"); signUpFail();
+			labelStatus.setText("Field Username can't be empty"); return false;
 		}
 		else if(password.getText().equals("")){
-			labelStatus.setText("Field Password can't be empty"); signUpFail();
+			labelStatus.setText("Field Password can't be empty"); return false;
 		}
 		else{
-			registered();
+			return true;
 		}
 	}
 
@@ -75,7 +94,12 @@ public class SignUpController {
 	}
 
 	public void changeUserPicture(ActionEvent event) {
-		System.out.println("Change user picture!");
+		FileChooser fc = new FileChooser();
+		File selected = fc.showOpenDialog(null);
+		if(selected != null)
+			userPhoto.setImage(new Image(selected.getAbsolutePath()));
+		else
+			System.out.println("File not valid!");
 	}
 
 	public void signUpFail(){
@@ -87,7 +111,7 @@ public class SignUpController {
 				new Person(firstName.getText(), lastName.getText(), umcn.getText(), address.getText(), null));
 
 		// adding new account
-		Application.getInstance().account.add(account);
+		Application.getInstance().accounts.add(account);
 
 		// save account in file
 		Application.getInstance().dumpAccounts();
@@ -95,6 +119,11 @@ public class SignUpController {
 		// change scene
 		Controller.getInstance().setMainViewScene();
 		Application.getInstance().changeState(new LogIn());
+	}
+
+	public void clearUserPass() {
+		username.setText("");
+		password.setText("");
 	}
 
 

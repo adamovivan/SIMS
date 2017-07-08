@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import state.LogIn;
 
 // Singleton
@@ -32,32 +33,37 @@ public class Controller {
 	public void init(Stage stage){
 
 		primaryStage = stage;
+		primaryStage.initStyle(StageStyle.UNDECORATED);
 
 		try {
 
 			// log in scene
+			LogInController loginCtrl = LogInController.getInstance();
 			FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("../view/LogIn.fxml"));
-			loginLoader.setController(new LogInController());
+			loginLoader.setController(loginCtrl);
 			Parent logInRoot = loginLoader.load();
 			sceneLogIn = new Scene(logInRoot);
 			sceneLogIn.getStylesheets().add(getClass().getResource("../style/logInStyle.css").toExternalForm());
 
 			// sign up scene
+			SignUpController signUpCtrl = SignUpController.getInstance();
 			FXMLLoader signupLoader = new FXMLLoader(getClass().getResource("../view/SignUp.fxml"));
-			signupLoader.setController(new SignUpController());
+			signupLoader.setController(signUpCtrl);
 			Parent signUpRoot = signupLoader.load();
 			sceneSignUp = new Scene(signUpRoot);
 			sceneSignUp.getStylesheets().add(getClass().getResource("../style/signUpStyle.css").toExternalForm());
 
 			// main view scene
+			MainController mainCtrl = MainController.getInstance();
 			FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("../view/MainView.fxml"));
-			mainLoader.setController(new MainController());
+			mainLoader.setController(mainCtrl);
 			Parent mainViewRoot = mainLoader.load();
 			sceneMainView = new Scene(mainViewRoot);
 
 			// edit profile scene
+			EditProfileController editProfileCtrl = EditProfileController.getInstance();
 			FXMLLoader editProfileLoader = new FXMLLoader(getClass().getResource("../view/MainView.fxml"));
-			editProfileLoader.setController(new EditProfileController());
+			editProfileLoader.setController(editProfileCtrl);
 			Parent editProfileRoot = editProfileLoader.load();
 			sceneEditProfile = new Scene(editProfileRoot);
 

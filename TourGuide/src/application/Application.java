@@ -17,6 +17,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import controller.SignUpController;
 import role.Guide;
 import role.Tourist;
 import state.State;
@@ -27,7 +28,7 @@ public class Application {
 
 	public static Application instance = null;
 
-	public Collection<Account> account;
+	public Collection<Account> accounts;
 	public Collection<City> city;
 	public Collection<Reservation> reservation;
 	public Collection<Guide> guide;
@@ -41,7 +42,7 @@ public class Application {
 	}
 
 	Application(){
-		account = new ArrayList<Account>();
+		accounts = new ArrayList<Account>();
 
 		init();
 	}
@@ -51,7 +52,7 @@ public class Application {
 		ObjectMapper accountMapper = new ObjectMapper();
 
 		try {
-			account = accountMapper.readValue(new File("data/accounts.json"), Collection.class);
+			accounts = accountMapper.readValue(new File("data/accounts.json"), Collection.class);
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -119,7 +120,7 @@ public class Application {
 	}
 
 	public void clearUsernamePass() {
-		// TODO: implement
+		SignUpController.getInstance().clearUserPass();
 	}
 
 	public boolean checkLogin(String username, String password) {
@@ -213,15 +214,15 @@ public class Application {
 	}
 
 	public java.util.Collection<Account> getAccount() {
-		if (account == null)
-			account = new java.util.HashSet<Account>();
-		return account;
+		if (accounts == null)
+			accounts = new java.util.HashSet<Account>();
+		return accounts;
 	}
 
 	public java.util.Iterator getIteratorAccount() {
-		if (account == null)
-			account = new java.util.HashSet<Account>();
-		return account.iterator();
+		if (accounts == null)
+			accounts = new java.util.HashSet<Account>();
+		return accounts.iterator();
 	}
 
 	public void setAccount(java.util.Collection<Account> newAccount) {
@@ -233,23 +234,23 @@ public class Application {
 	public void addAccount(Account newAccount) {
 		if (newAccount == null)
 			return;
-		if (this.account == null)
-			this.account = new java.util.HashSet<Account>();
-		if (!this.account.contains(newAccount))
-			this.account.add(newAccount);
+		if (this.accounts == null)
+			this.accounts = new java.util.HashSet<Account>();
+		if (!this.accounts.contains(newAccount))
+			this.accounts.add(newAccount);
 	}
 
 	public void removeAccount(Account oldAccount) {
 		if (oldAccount == null)
 			return;
-		if (this.account != null)
-			if (this.account.contains(oldAccount))
-				this.account.remove(oldAccount);
+		if (this.accounts != null)
+			if (this.accounts.contains(oldAccount))
+				this.accounts.remove(oldAccount);
 	}
 
 	public void removeAllAccount() {
-		if (account != null)
-			account.clear();
+		if (accounts != null)
+			accounts.clear();
 	}
 
 	public java.util.Collection<City> getCity() {
@@ -419,7 +420,7 @@ public class Application {
 
 		try {
 
-			mapper.writeValue(new File("data/accounts.json"), account);
+			mapper.writeValue(new File("data/accounts.json"), accounts);
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
