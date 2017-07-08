@@ -1,0 +1,94 @@
+[ {
+  "maxSpots" : 5,
+  "availableSpots" : 5,
+  "upVotes" : 3,
+  "downVotes" : 0,
+  "guide" : {
+    "username" : "motomaniac96",
+    "password" : "somepass",
+    "description" : "sexy",
+    "picture" : "C://Users//Nikola//Desktop//SIMS//TourGuide//src//icons//user.jpg",
+    "person" : {
+      "firstName" : "Nikola",
+      "lastName" : "Tomic",
+      "umcn" : "165165165",
+      "address" : "S.Konstant.",
+      "city" : {
+        "name" : "Smederevo",
+        "pttNumber" : 11300
+      }
+    },
+    "route" : [ ],
+    "iteratorRoute" : [ ]
+  },
+  "tourName" : "Super tura1",
+  "route" : {
+    "checkPoint" : [ ],
+    "iteratorCheckPoint" : [ ]
+  },
+  "tourType" : {
+    "type" : "Biking"
+  }
+}, {
+  "maxSpots" : 5,
+  "availableSpots" : 5,
+  "upVotes" : 3,
+  "downVotes" : 0,
+  "guide" : {
+    "username" : "motomaniac96",
+    "password" : "somepass",
+    "description" : "sexy",
+    "picture" : "C://Users//Nikola//Desktop//SIMS//TourGuide//src//icons//user.jpg",
+    "person" : {
+      "firstName" : "Nikola",
+      "lastName" : "Tomic",
+      "umcn" : "165165165",
+      "address" : "S.Konstant.",
+      "city" : {
+        "name" : "Smederevo",
+        "pttNumber" : 11300
+      }
+    },
+    "route" : [ ],
+    "iteratorRoute" : [ ]
+  },
+  "tourName" : "Super tura2",
+  "route" : {
+    "checkPoint" : [ ],
+    "iteratorCheckPoint" : [ ]
+  },
+  "tourType" : {
+    "type" : "Biking"
+  }
+}, {
+  "maxSpots" : 5,
+  "availableSpots" : 5,
+  "upVotes" : 3,
+  "downVotes" : 0,
+  "guide" : {
+    "username" : "motomaniac96",
+    "password" : "somepass",
+    "description" : "sexy",
+    "picture" : "C://Users//Nikola//Desktop//SIMS//TourGuide//src//icons//user.jpg",
+    "person" : {
+      "firstName" : "Nikola",
+      "lastName" : "Tomic",
+      "umcn" : "165165165",
+      "address" : "S.Konstant.",
+      "city" : {
+        "name" : "Smederevo",
+        "pttNumber" : 11300
+      }
+    },
+    "route" : [ ],
+    "iteratorRoute" : [ ]
+  },
+  "tourName" : "Super tura3",
+  "route" : {
+    "checkPoint" : [ ],
+    "iteratorCheckPoint" : [ ]
+  },
+  "tourType" : {
+    "type" : "Biking"
+  }
+} ]

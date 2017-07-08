@@ -10,14 +10,14 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Location {
-   private String name;
+	private String name;
 
-   public String getName() {
-      return name;
-   }
+	public String getName() {
+		return name;
+	}
 
-   public void setName(String newName) {
-      name = newName;
-   }
+	public void setName(String newName) {
+		name = newName;
+	}
 
 }

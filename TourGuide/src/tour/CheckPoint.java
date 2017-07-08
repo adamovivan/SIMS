@@ -5,39 +5,49 @@
  ***********************************************************************/
 package tour;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class CheckPoint {
-   private java.util.Date time;
-   private String description;
+	private java.util.Date time;
+	private String description;
 
-   public Location location;
+	public Location location;
 
-public java.util.Date getTime() {
-	return time;
-}
+	public CheckPoint() {
+	}
 
-public void setTime(java.util.Date time) {
-	this.time = time;
-}
+	public CheckPoint(Date time, String description, Location location) {
+		this.time = time;
+		this.description = description;
+		this.location = location;
+	}
 
-public String getDescription() {
-	return description;
-}
+	public java.util.Date getTime() {
+		return time;
+	}
 
-public void setDescription(String description) {
-	this.description = description;
-}
+	public void setTime(java.util.Date time) {
+		this.time = time;
+	}
 
-public Location getLocation() {
-	return location;
-}
+	public String getDescription() {
+		return description;
+	}
 
-public void setLocation(Location location) {
-	this.location = location;
-}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 
 }

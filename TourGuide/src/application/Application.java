@@ -59,36 +59,37 @@ public class Application {
 		ObjectMapper accountMapper = new ObjectMapper();
 
 			try {
-				accounts = accountMapper.readValue(new File("data/accounts.json"), accounts.getClass());
+				accounts = accountMapper.readValue(new File("data/accounts.json"), Collection.class);
 
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (JsonMappingException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
-
 		readTours();
-
 	}
 
 	private void readTours() {
 		ObjectMapper toursMapper = new ObjectMapper();
-		ArrayList<Tour> temp = null;
 		try {
-			temp = (ArrayList<Tour>) toursMapper.readValue(new File("data/tours.json"), temp.getClass());
+			File f = new File("data/tours.json");
+			if(f.length() != 0){
+				ArrayList<Tour> temp = null;
+				temp = toursMapper.readValue(f, ArrayList.class);
+				for(Object o : temp){
+					Tour t = new Tour();
+					t = toursMapper.convertValue(o, Tour.class);
+					tours.add(t);
+				}
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		for(Object o : temp){
-			Tour t = new Tour();
-			t = toursMapper.convertValue(o, Tour.class);
-			tours.add(t);
 		}
 	}
 
