@@ -107,6 +107,8 @@ public class MainController implements Initializable{
 		System.out.println(startDatePicker.getValue());
 
 
+
+
 	}
 
 	public void searchForChanged(){

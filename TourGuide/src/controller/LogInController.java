@@ -5,10 +5,12 @@ import java.util.ResourceBundle;
 
 import application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import state.GuideMainView;
 import state.LogIn;
@@ -18,6 +20,8 @@ import state.TouristMainView;
 public class LogInController implements Initializable{
 
 	public static LogInController instance = null;
+	private static double xOffset = 0;
+    private static double yOffset = 0;
 
 	public static LogInController getInstance(){
 		if(instance == null)
@@ -39,6 +43,7 @@ public class LogInController implements Initializable{
 
 	@FXML
 	private AnchorPane dragPane;
+
 
 	public void logIn(ActionEvent event) {
 
@@ -79,10 +84,29 @@ public class LogInController implements Initializable{
 		System.out.println("Some event!");
 	}
 
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		dragPane.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = Controller.getInstance().primaryStage.getX() - event.getScreenX();
+                yOffset = Controller.getInstance().primaryStage.getY() - event.getScreenY();
+            }
+        });
+
+		dragPane.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+            	Controller.getInstance().primaryStage.setX(event.getScreenX() + xOffset);
+            	Controller.getInstance().primaryStage.setY(event.getScreenY() + yOffset);
+            }
+        });
 
 	}
+
+
 
 
 }

@@ -1,25 +1,34 @@
 package controller;
 
 import java.io.File;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import application.Account;
 import application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import role.Person;
 import state.LogIn;
 import state.SignUp;
 
-public class SignUpController {
+public class SignUpController implements Initializable {
 
 	public static SignUpController instance = null;
+	private static double xOffset = 0;
+    private static double yOffset = 0;
 
 	public static SignUpController getInstance(){
 		if(instance == null)
@@ -60,6 +69,9 @@ public class SignUpController {
 	@FXML
 	private Button registerButton;
 
+	@FXML
+	private AnchorPane signUpDragPane;
+
 	public void register(ActionEvent event){
 		if(registration())
 			registered();
@@ -93,8 +105,10 @@ public class SignUpController {
 		Application.getInstance().changeState(new LogIn());
 	}
 
-	public void changeUserPicture(ActionEvent event) {
+	public void changeUserPicture() {
 		FileChooser fc = new FileChooser();
+		fc.getExtensionFilters().add(new ExtensionFilter("JPG","*.jpg"));
+		fc.getExtensionFilters().add(new ExtensionFilter("PNG","*.png"));
 		File selected = fc.showOpenDialog(null);
 		if(selected != null)
 			userPhoto.setImage(new Image(selected.getAbsolutePath()));
@@ -124,6 +138,28 @@ public class SignUpController {
 	public void clearUserPass() {
 		username.setText("");
 		password.setText("");
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+
+		userPhoto.setOnMouseClicked((event) -> {changeUserPicture();});
+
+		signUpDragPane.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = Controller.getInstance().primaryStage.getX() - event.getScreenX();
+                yOffset = Controller.getInstance().primaryStage.getY() - event.getScreenY();
+            }
+        });
+
+		signUpDragPane.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+            	Controller.getInstance().primaryStage.setX(event.getScreenX() + xOffset);
+            	Controller.getInstance().primaryStage.setY(event.getScreenY() + yOffset);
+            }
+        });
 	}
 
 
