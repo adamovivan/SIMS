@@ -5,34 +5,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="cardBackgound" prefHeight="118.0" prefWidth="423.0" style="-fx-background-color: #4286f4;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="cardBackgound" prefHeight="118.0" prefWidth="423.0" style="-fx-background-color: white; -fx-cursor: hand;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="cardImage" fitHeight="118.0" fitWidth="101.0" pickOnBounds="true" />
-      <Label fx:id="cardLabel" layoutX="106.0" layoutY="4.0" text="Super ekstra tura" textFill="WHITE">
+      <Label fx:id="cardLabel" layoutX="106.0" layoutY="4.0" text="Super ekstra tura" textFill="#515151">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="109.0" layoutY="35.0" text="city:" />
-      <Label fx:id="cityName" layoutX="135.0" layoutY="33.0" text="Novi Sad" textFill="WHITE">
+      <Label layoutX="109.0" layoutY="35.0" text="city:" textFill="#393939" />
+      <Label fx:id="cityName" layoutX="135.0" layoutY="33.0" text="Novi Sad" textFill="#5b5b5b">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="106.0" layoutY="51.0" text="type:" />
-      <Label fx:id="tourType" layoutX="134.0" layoutY="51.0" text="walking(dead)" textFill="WHITE">
+      <Label layoutX="106.0" layoutY="51.0" text="type:" textFill="#323232" />
+      <Label fx:id="tourType" layoutX="134.0" layoutY="51.0" text="walking(dead)" textFill="#575757">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="68.0" text="spots:" />
-      <Label fx:id="freeSpots" layoutX="135.0" layoutY="67.0" text="5" textFill="WHITE">
+      <Label layoutX="103.0" layoutY="68.0" text="spots:" textFill="#393939" />
+      <Label fx:id="freeSpots" layoutX="135.0" layoutY="67.0" text="5" textFill="#5b5b5b">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <ImageView fx:id="guidePhoto" fitHeight="50.0" fitWidth="31.0" layoutX="378.0" layoutY="60.0" pickOnBounds="true" />
-      <Label layoutX="377.0" layoutY="35.0" text="Guide:" />
-      <Label fx:id="guideUsername" alignment="CENTER_RIGHT" layoutX="281.0" layoutY="96.0" prefHeight="17.0" prefWidth="81.0" text="motomaniac96" textFill="WHITE" />
+      <Label layoutX="377.0" layoutY="35.0" text="Guide:" textFill="#656565" />
+      <Label fx:id="guideUsername" alignment="CENTER_RIGHT" layoutX="281.0" layoutY="96.0" prefHeight="17.0" prefWidth="81.0" text="motomaniac96" textFill="#5b5b5b" />
    </children>
 </AnchorPane>

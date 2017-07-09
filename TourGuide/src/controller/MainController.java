@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
 import application.Application;
@@ -26,9 +28,19 @@ import javafx.scene.layout.VBox;
 import state.EditProfile;
 import tour.Tour;
 
+class MostPopularComparator implements Comparator<Tour> {
+    @Override
+    public int compare(Tour a, Tour b) {
+    	 return a.getUpVotes() < b.getUpVotes() ? -1 : a.getUpVotes() == b.getUpVotes() ? 0 : 1;
+    }
+}
+
 public class MainController implements Initializable{
 
 	public static MainController instance = null;
+	public boolean reversedByOldest = false;
+
+	public ArrayList<Tour> currentlyShown = new ArrayList<Tour>();
 
 	public static MainController getInstance(){
 		if(instance == null)
@@ -87,6 +99,9 @@ public class MainController implements Initializable{
 	@FXML
 	public ImageView userImageOverlay;
 
+	@FXML
+	public ImageView closeWindow;
+
 	ObservableList<String> searchForList = FXCollections.observableArrayList("City","Place","Tour","Guide");
 	ObservableList<String> sortByList = FXCollections.observableArrayList("Most Popular","Newest","Oldest");
 	SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 99, 1);
@@ -118,12 +133,19 @@ public class MainController implements Initializable{
 		// user image click -> edit profile window
 		userImageOverlay.setOnMouseClicked((event) -> {editUserProfileClicked();});
 
+		// close window button
+		closeWindow.setOnMouseClicked((event) -> {System.exit(0);});
+
 		// initialize most popular destinations
-		loadCards(Application.getInstance().tours);
+		displayCards(Application.getInstance().tours);
+		currentlyShown.addAll(Application.getInstance().tours);
+
+		// connect search
+		searchImage.setOnMouseClicked((event) -> {search();});
 
 	}
 
-	public void loadCards(Collection<Tour> tours){
+	public void displayCards(Collection<Tour> tours){
 		vbox.getChildren().clear();
 		for (Tour t : tours) {
 			CardController cardCtrl = new CardController();
@@ -140,12 +162,110 @@ public class MainController implements Initializable{
 		}
 	}
 
+	// search + sort by
+	public void search(){
+		// clear previous search
+		vbox.getChildren().clear();
+
+		if(searchField.getText().equals(""))
+			emptyField();
+		// searh
+		switch (searchForCombo.getValue()) {
+		case "City":
+			searchForCity(searchField.getText());
+			break;
+		case "Place":
+			System.out.println("Not implemented!");
+			break;
+		case "Tour":
+			searchByTourName(searchField.getText());
+			break;
+		case "Guide":
+			searchForGuide(searchField.getText());
+			break;
+		default:
+			System.out.println("Wrong combo selection!");
+			break;
+		}
+
+		// if no search results
+		if(currentlyShown.size() == 0)
+			emptyField();
+
+		// sort by
+		sortBy();
+
+		// display search results
+		displayCards(currentlyShown);
+	}
+
+	// TODO add noResultLabel to vbox
+	private void emptyField() {
+		System.out.println("Search field empty!");
+	}
+
+	private void sortBy() {
+		// TODO Auto-generated method stub
+		switch (sortByCombo.getValue()) {
+		case "Most Popular":
+			sortByMostPopular();
+			break;
+		case "Newest":
+			sortByNewest();
+			break;
+		case "Oldest":
+			sortByOldest();
+			break;
+		default:
+			System.out.println("Wrong combo selection!");
+			break;
+		}
+		displayCards(currentlyShown);
+	}
+
+	private void sortByOldest() {
+		Collections.reverse(currentlyShown);
+		reversedByOldest = true;
+	}
+
+	private void sortByNewest() {
+		if(reversedByOldest)
+			Collections.reverse(currentlyShown);
+		reversedByOldest = false;
+	}
+
+	private void sortByMostPopular() {
+		Collections.sort(currentlyShown, new MostPopularComparator());
+	}
+
+	private void searchForGuide(String text) {
+		for(Tour t : Application.getInstance().tours){
+			if(t.getGuide().getUsername().toLowerCase().contains(text.toLowerCase())){
+				currentlyShown.add(t);
+			}
+		}
+	}
+
+	private void searchByTourName(String text) {
+		for(Tour t : Application.getInstance().tours){
+			if(t.getTourName().toLowerCase().contains(text.toLowerCase())){
+				currentlyShown.add(t);
+			}
+		}
+
+	}
+	// waiting to add attribute
+	private void searchForCity(String text) {
+		// TODO Auto-generated method stub
+
+	}
+
 	public void searchForChanged(){
 		System.out.println(searchForCombo.getValue());
 	}
 
 	public void sortByChanged(){
-		System.out.println(sortByCombo.getValue());
+		sortBy();
 	}
 
 	public void editUserProfileClicked(){

@@ -41,12 +41,18 @@ public class CardController implements Initializable {
 	}
 
 	// add pictures later
-	// ADD CITY
-	public void setData(Tour t){
+	// ADD CITY NAME
+	// LOAD GUIDE IMAGE
+	public void setData(Tour t) {
 		cardLabel.setText(t.tourName);
-		cityName.setText("add later...");
+		cityName.setText("NOVI SAD");
+		// cardImage.setImage(new
+		// Image("C://Users//Nikola//Desktop//SIMS//TourGuide//src//icons//novisad.jpg"));
+		freeSpots.setText(Integer.toString(t.getAvailableSpots()));
 		tourType.setText(t.getTourType().getType());
 		guideUsername.setText(t.getGuide().getUsername());
+		// guidePhoto.setImage(new
+		// Image("C://Users//Nikola//Desktop//SIMS//TourGuide//src//icons//user.jpg"));
 	}
 
 }
