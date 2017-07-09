@@ -3,6 +3,7 @@ package controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import application.Account;
 import application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -142,6 +144,8 @@ public class ExtendedCardController implements Initializable {
 	}
 
 	public void loadTourInfo() {
+		Account user = Application.getInstance().user;
+		
 		Tour t = MainController.getInstance().selectedTour;
 		tourNameLabel.setText(t.getTourName());
 		// TODO
@@ -149,14 +153,15 @@ public class ExtendedCardController implements Initializable {
 		tourTypeLabel.setText(t.getTourType().getType());
 		availableSpots.setText(Integer.toString(t.getAvailableSpots()));
 		totalSpots.setText(Integer.toString(t.getMaxSpots()));
-		// TODO toString route !!!
-		tourInfo.setText(t.getRoute().toString());
-		// TODO add attribute firstName to guide
-		guideFirstNameLabel.setText("Nikola");
-		// TODO add attribute firstName to guide
-		guideLastNameLabel.setText("Tomic");
-		guideUsernameLabel.setText(t.getGuide().getUsername());
 
+		tourInfo.setText(t.getRoute().toString());
+
+		guideFirstNameLabel.setText(user.getPerson().getFirstName());
+		guideLastNameLabel.setText(user.getPerson().getLastName());
+		
+		guideUsernameLabel.setText(user.getUsername());
+
+		guidePicture.setImage(new Image(user.getPicture()));
 		// TODO set all remaining pictures (after all attributes added)
 		// ...
 
