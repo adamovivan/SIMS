@@ -36,7 +36,7 @@ import tour.Tour;
 class MostPopularComparator implements Comparator<Tour> {
 	@Override
 	public int compare(Tour a, Tour b) {
-		return a.getUpVotes() < b.getUpVotes() ? -1 : a.getUpVotes() == b.getUpVotes() ? 0 : 1;
+		return a.getUpVotes() < b.getUpVotes() ? 1 : a.getUpVotes() == b.getUpVotes() ? 0 : -1;
 	}
 }
 
@@ -225,7 +225,6 @@ public class MainController implements Initializable {
 			emptyField();
 
 		// searh
-
 		switch (searchParam) {
 
 		case "City":
@@ -251,26 +250,21 @@ public class MainController implements Initializable {
 		}
 
 		// if no search results
-
-		if (currentlyShown.size() == 0)
-
+		if (currentlyShown.size() == 0){
 			emptyField();
+			return  0;
+		}
 
 		// sort by
-
 		sortBy(sortByValue);
 
 		// display search results
-
 		return currentlyShown.size();
 	}
 
 	// TODO add noResultLabel to vbox
-
 	private void emptyField() {
-
 		System.out.println("Search field empty!");
-
 	}
 
 	public void sortBy(String param) {
@@ -299,7 +293,6 @@ public class MainController implements Initializable {
 	private void sortByOldest() {
 		Collections.reverse(currentlyShown);
 		reversedByOldest = true;
-
 	}
 
 	private void sortByNewest() {

@@ -4,7 +4,6 @@ import controller.Controller;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import tour.City;
 
 
 public class Main extends Application {
