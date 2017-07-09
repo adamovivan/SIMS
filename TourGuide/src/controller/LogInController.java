@@ -63,7 +63,7 @@ public class LogInController implements Initializable{
 		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().accounts;
 		
 		if(username.equals("") && password.equals("")){
-			Application.getInstance().user = new Account("admin", "admin", "", "/icons/avatar.jpg",
+			Application.getInstance().user = new Account("admin", "admin", "I'm admin!", "/icons/avatar.jpg",
 					new Person("", "", "", "", null));
 			return true;
 		}

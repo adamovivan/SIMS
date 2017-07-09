@@ -363,7 +363,7 @@ public class MainController implements Initializable {
 		firstNameLabel.setText(user.getPerson().getFirstName());
 		lastNameLabel.setText(user.getPerson().getLastName());
 		userName.setText(user.getUsername());
-		//mainCtrl.descriptionPanel.setText(user.getDescription());  // TODO label maybe instead of description panel??
+		descriptionPanel.setText(user.getDescription()); 
 		userPhoto.setImage(new Image(user.getPicture()));
 
 	}
