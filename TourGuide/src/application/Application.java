@@ -19,10 +19,13 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import controller.MainController;
 import controller.SignUpController;
 import role.Guide;
 import role.Tourist;
+import state.GuideMainView;
 import state.State;
+import state.TouristMainView;
 import tour.City;
 import tour.Reservation;
 import tour.Tour;
@@ -39,6 +42,9 @@ public class Application {
 	public Collection<Tourist> tourists;
 	public State state = null;
 
+	// TODO set this based on user that is logged in
+	public String userTypeLogged;
+
 	public static Application getInstance(){
 		if(instance == null)
 			instance = new Application();
@@ -52,6 +58,9 @@ public class Application {
 		reservations = new ArrayList<Reservation>();
 		guides = new ArrayList<Guide>();
 		tourists = new ArrayList<Tourist>();
+
+		// TODO change when feature fully implemented
+		userTypeLogged = "Guide";
 
 		init();
 	}
@@ -85,6 +94,12 @@ public class Application {
 				return a;
 	    }
 		return null;
+	}
+
+	public State getUserTypeState(){
+		if(userTypeLogged.equals("Guide"))
+			return new GuideMainView();
+		return new TouristMainView();
 	}
 
 	public int updateMainView() {
