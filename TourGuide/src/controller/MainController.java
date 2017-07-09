@@ -360,5 +360,5 @@ public class MainController implements Initializable {
 		userPhoto.setImage(new Image(user.getPicture()));
 
 	}
-	
+
 }
