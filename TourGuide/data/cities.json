@@ -34,4 +34,13 @@
 }, {
   "name" : "Beograd",
   "pttNumber" : 11000
+}, {
+  "name" : "Subotica",
+  "pttNumber" : 24000
+}, {
+  "name" : "Novi Sad",
+  "pttNumber" : 21000
+}, {
+  "name" : "Beograd",
+  "pttNumber" : 11000
 } ]
