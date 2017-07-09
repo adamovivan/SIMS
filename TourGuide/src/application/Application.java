@@ -19,10 +19,13 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import controller.MainController;
 import controller.SignUpController;
 import role.Guide;
 import role.Tourist;
+import state.GuideMainView;
 import state.State;
+import state.TouristMainView;
 import tour.City;
 import tour.Reservation;
 import tour.Tour;
@@ -39,6 +42,9 @@ public class Application {
 	public Collection<Tourist> tourists;
 	public State state = null;
 
+	// TODO set this based on user that is logged in
+	public String userTypeLogged;
+
 	public static Application getInstance(){
 		if(instance == null)
 			instance = new Application();
@@ -53,46 +59,33 @@ public class Application {
 		guides = new ArrayList<Guide>();
 		tourists = new ArrayList<Tourist>();
 
+		// TODO change when feature fully implemented
+		userTypeLogged = "Guide";
+
 		init();
 	}
 
 	// TODO add method to class diagram
 	private void init(){
 		ObjectMapper accountMapper = new ObjectMapper();
+		ObjectMapper toursMapper = new ObjectMapper();
 
 			try {
 				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
+				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
+
+				System.out.println(tours.toString());
 
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (JsonMappingException e) {
-				
-				// if file is empty
 				//e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
-		//readTours();
-
-	}
-
-	private void readTours() {
-		ObjectMapper toursMapper = new ObjectMapper();
-		ArrayList<Tour> temp = null;
-		try {
-			temp = (ArrayList<Tour>) toursMapper.readValue(new File("data/tours.json"), temp.getClass());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		for(Object o : temp){
-			Tour t = new Tour();
-			t = toursMapper.convertValue(o, Tour.class);
-			tours.add(t);
-		}
 	}
 
 	public Account getAccountByUsername(String userName){
@@ -101,6 +94,12 @@ public class Application {
 				return a;
 	    }
 		return null;
+	}
+
+	public State getUserTypeState(){
+		if(userTypeLogged.equals("Guide"))
+			return new GuideMainView();
+		return new TouristMainView();
 	}
 
 	public int updateMainView() {

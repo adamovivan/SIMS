@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+
+<Label alignment="CENTER" prefHeight="43.0" prefWidth="420.0" text="Sorry, no results found for given search parameters... :(" textAlignment="CENTER" textFill="WHITE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <font>
+      <Font name="System Bold" size="15.0" />
+   </font>
+</Label>

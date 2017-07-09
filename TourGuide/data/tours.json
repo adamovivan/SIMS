@@ -18,13 +18,11 @@
         "pttNumber" : 11300
       }
     },
-    "route" : [ ],
-    "iteratorRoute" : [ ]
+    "route" : [ ]
   },
   "tourName" : "Super tura1",
   "route" : {
-    "checkPoint" : [ ],
-    "iteratorCheckPoint" : [ ]
+    "checkPoint" : [ ]
   },
   "tourType" : {
     "type" : "Biking"
@@ -49,13 +47,11 @@
         "pttNumber" : 11300
       }
     },
-    "route" : [ ],
-    "iteratorRoute" : [ ]
+    "route" : [ ]
   },
   "tourName" : "Super tura2",
   "route" : {
-    "checkPoint" : [ ],
-    "iteratorCheckPoint" : [ ]
+    "checkPoint" : [ ]
   },
   "tourType" : {
     "type" : "Biking"
@@ -80,13 +76,11 @@
         "pttNumber" : 11300
       }
     },
-    "route" : [ ],
-    "iteratorRoute" : [ ]
+    "route" : [ ]
   },
   "tourName" : "Super tura3",
   "route" : {
-    "checkPoint" : [ ],
-    "iteratorCheckPoint" : [ ]
+    "checkPoint" : [ ]
   },
   "tourType" : {
     "type" : "Biking"

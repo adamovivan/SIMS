@@ -27,4 +27,10 @@ public class TourType {
 		type = newType;
 	}
 
+	@Override
+	public String toString() {
+		return "TourType [type=" + type + "]";
+	}
+
+	
 }

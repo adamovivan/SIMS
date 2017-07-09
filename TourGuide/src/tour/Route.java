@@ -32,11 +32,7 @@ public class Route {
 		return checkPoint;
 	}
 
-	public java.util.Iterator getIteratorCheckPoint() {
-		if (checkPoint == null)
-			checkPoint = new java.util.HashSet<CheckPoint>();
-		return checkPoint.iterator();
-	}
+
 
 	public void setCheckPoint(java.util.Collection<CheckPoint> newCheckPoint) {
 		removeAllCheckPoint();
@@ -64,6 +60,11 @@ public class Route {
 	public void removeAllCheckPoint() {
 		if (checkPoint != null)
 			checkPoint.clear();
+	}
+
+	@Override
+	public String toString() {
+		return "Route [checkPoint=" + checkPoint + "]";
 	}
 
 }
