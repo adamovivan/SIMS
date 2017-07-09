@@ -59,13 +59,13 @@
     "city" : null
   }
 }, {
-  "username" : "milica555",
-  "password" : "mimi",
+  "username" : "obama.barak",
+  "password" : "obama123",
   "description" : "",
-  "picture" : "/icons/avatar.jpg",
+  "picture" : "/icons/obama.jpg",
   "person" : {
-    "firstName" : "Milica",
-    "lastName" : "Milic",
+    "firstName" : "Barak",
+    "lastName" : "Obama",
     "umcn" : "35252",
     "address" : "",
     "city" : null
