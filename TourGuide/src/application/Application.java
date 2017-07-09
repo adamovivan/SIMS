@@ -19,7 +19,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import controller.MainController;
 import controller.SignUpController;
 import role.Guide;
 import role.Tourist;
@@ -42,10 +41,10 @@ public class Application {
 	public Collection<Tourist> tourists;
 	public State state = null;
 	public Account user;
-	
+
 	// TODO set this based on user that is logged in
 	public String userTypeLogged;
-	
+
 	public static Application getInstance(){
 		if(instance == null)
 			instance = new Application();
@@ -70,23 +69,24 @@ public class Application {
 	private void init(){
 		ObjectMapper accountMapper = new ObjectMapper();
 		ObjectMapper toursMapper = new ObjectMapper();
+		ObjectMapper cityMapper = new ObjectMapper();
 
 			try {
 				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
 				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
 
 				System.out.println(tours.toString());
-				cities = toursMapper.readValue(new File("data/cities.json"), new TypeReference<List<City>>(){});
+				cities = cityMapper.readValue(new File("data/cities.json"), new TypeReference<List<City>>(){});
 				cities.add(new City("Subotica", 24000));
 				cities.add(new City("Novi Sad", 21000));
 				cities.add(new City("Beograd", 11000));
-				
-				
+
+
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (JsonMappingException e) {
-				//e.printStackTrace();
+				e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -469,7 +469,7 @@ public class Application {
 			e.printStackTrace();
 		}
 	}
-	
+
 	// TODO add method to class diagram
 		public void dumpCities(){
 			ObjectMapper mapper = new ObjectMapper();

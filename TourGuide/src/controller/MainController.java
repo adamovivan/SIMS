@@ -161,7 +161,9 @@ public class MainController implements Initializable {
 
 		// connect search
 		searchImage.setOnMouseClicked((event) -> {
-			search();
+			vbox.getChildren().clear();
+			search(searchField.getText(), searchForCombo.getValue(), sortByCombo.getValue());
+			displayCards(currentlyShown);
 		});
 
 		// make window draggable
@@ -184,86 +186,120 @@ public class MainController implements Initializable {
 	}
 
 	public void displayCards(Collection<Tour> tours) {
+
 		vbox.getChildren().clear();
+
 		for (Tour t : tours) {
+
 			CardController cardCtrl = new CardController();
+
 			FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("../view/card.fxml"));
+
 			cardLoader.setController(cardCtrl);
+
 			Parent cardRoot = null;
+
 			try {
 				cardRoot = cardLoader.load();
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+
 			cardCtrl.setData(t);
 			vbox.getChildren().add(cardRoot);
 		}
+
 	}
 
 	// search + sort by
-	public void search() {
-		// clear previous search
-		vbox.getChildren().clear();
 
-		if (searchField.getText().equals(""))
+	// returns number of items found
+	public int search(String searchText, String searchParam, String sortByValue) {
+
+		// clear previous search
+		currentlyShown.clear();
+
+		if (searchText.equals(""))
+
 			emptyField();
+
 		// searh
-		switch (searchForCombo.getValue()) {
+
+		switch (searchParam) {
+
 		case "City":
-			searchForCity(searchField.getText());
+			searchForCity(searchText);
 			break;
+
 		case "Place":
 			System.out.println("Not implemented!");
 			break;
+
 		case "Tour":
-			searchByTourName(searchField.getText());
+			searchByTourName(searchText);
 			break;
+
 		case "Guide":
-			searchForGuide(searchField.getText());
+			searchForGuide(searchText);
 			break;
+
 		default:
 			System.out.println("Wrong combo selection!");
 			break;
+
 		}
 
 		// if no search results
+
 		if (currentlyShown.size() == 0)
+
 			emptyField();
 
 		// sort by
-		sortBy();
+
+		sortBy(sortByValue);
 
 		// display search results
-		displayCards(currentlyShown);
+
+		return currentlyShown.size();
 	}
 
 	// TODO add noResultLabel to vbox
+
 	private void emptyField() {
+
 		System.out.println("Search field empty!");
+
 	}
 
-	private void sortBy() {
+	public void sortBy(String param) {
+
 		// TODO Auto-generated method stub
-		switch (sortByCombo.getValue()) {
+		switch (param) {
+
 		case "Most Popular":
 			sortByMostPopular();
 			break;
+
 		case "Newest":
 			sortByNewest();
 			break;
+
 		case "Oldest":
 			sortByOldest();
 			break;
+
 		default:
 			System.out.println("Wrong combo selection!");
 			break;
 		}
-		displayCards(currentlyShown);
 	}
 
 	private void sortByOldest() {
 		Collections.reverse(currentlyShown);
 		reversedByOldest = true;
+
 	}
 
 	private void sortByNewest() {
@@ -277,6 +313,7 @@ public class MainController implements Initializable {
 	}
 
 	private void searchForGuide(String text) {
+
 		for (Tour t : Application.getInstance().tours) {
 			if (t.getGuide().getUsername().toLowerCase().contains(text.toLowerCase())) {
 				currentlyShown.add(t);
@@ -285,50 +322,44 @@ public class MainController implements Initializable {
 	}
 
 	private void searchByTourName(String text) {
+
 		for (Tour t : Application.getInstance().tours) {
 			if (t.getTourName().toLowerCase().contains(text.toLowerCase())) {
 				currentlyShown.add(t);
 			}
 		}
-
 	}
 
 	// waiting to add attribute
 	private void searchForCity(String text) {
 		// TODO Auto-generated method stub
-
+		System.out.println("Not implemented!");
 	}
 
-	public void logOut(){
-		Application.getInstance().user = null;
-		Controller.getInstance().setLogInScene();
-	}
-	
 	public void searchForChanged() {
 		System.out.println(searchForCombo.getValue());
 	}
 
 	public void sortByChanged() {
-		sortBy();
+		sortBy(sortByCombo.getValue());
+		displayCards(currentlyShown);
 	}
 
 	public void editUserProfileClicked() {
+
 		Controller.getInstance().setEditProfileScene();
 		Application.getInstance().changeState(new EditProfile());
-	}
-
-	public void disableBookButton(){
 
 	}
 
 	public void setProfile(){
 		Account user = Application.getInstance().user;
-		
+
 		firstNameLabel.setText(user.getPerson().getFirstName());
 		lastNameLabel.setText(user.getPerson().getLastName());
 		userName.setText(user.getUsername());
-		//mainCtrl.descriptionPanel.setText(user.getDescription());  // TODO label maybe instead of description panel?? 
+		//mainCtrl.descriptionPanel.setText(user.getDescription());  // TODO label maybe instead of description panel??
 		userPhoto.setImage(new Image(user.getPicture()));
-		
+
 	}
 }
