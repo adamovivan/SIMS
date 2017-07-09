@@ -38,12 +38,11 @@
                </font>
             </Label>
             <ComboBox fx:id="sortByCombo" layoutX="444.0" layoutY="59.0" prefWidth="150.0" promptText="Newest" />
-            <ImageView fx:id="userPhoto" fitHeight="66.0" fitWidth="62.0" layoutX="678.0" layoutY="5.0" pickOnBounds="true" style="-fx-cursor: hand; -fx-background-radius: 5;">
+            <ImageView fx:id="userPhoto" fitHeight="66.0" fitWidth="62.0" layoutX="678.0" layoutY="15.0" pickOnBounds="true" style="-fx-cursor: hand; -fx-background-radius: 5;">
                <image>
-                  <Image url="@../icons/avatar.jpg" />
+                  <Image url="@../icons/user.jpg" />
                </image>
             </ImageView>
-<<<<<<< HEAD
             <ImageView fx:id="userImageOverlay" fitHeight="66.0" fitWidth="62.0" layoutX="678.0" layoutY="15.0" pickOnBounds="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../icons/userBorder.png" />
@@ -54,10 +53,6 @@
                   <Image url="@../icons/clearWhite.png" />
                </image>
             </ImageView>
-=======
-            <ImageView fx:id="userImageOverlay" fitHeight="66.0" fitWidth="62.0" layoutX="678.0" layoutY="5.0" pickOnBounds="true" style="-fx-cursor: hand;" />
-            <Button layoutX="680.0" layoutY="71.0" mnemonicParsing="false" onAction="#logOut" text="Log Out" />
->>>>>>> refs/remotes/origin/master
          </children>
       </AnchorPane>
    </top>
@@ -100,11 +95,7 @@
    <right>
       <AnchorPane prefHeight="526.0" prefWidth="190.0" style="-fx-background-color: #7c7c7c;" BorderPane.alignment="CENTER">
          <children>
-<<<<<<< HEAD
             <Label fx:id="userName" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="8.0" prefHeight="20.0" prefWidth="134.0" text="motomaniac96" textAlignment="CENTER" textFill="WHITE">
-=======
-            <Label fx:id="userName" alignment="CENTER" contentDisplay="CENTER" layoutX="33.0" layoutY="8.0" prefHeight="20.0" prefWidth="134.0" textAlignment="CENTER">
->>>>>>> refs/remotes/origin/master
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -114,11 +105,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-<<<<<<< HEAD
             <Label fx:id="firstNameLabel" layoutX="33.0" layoutY="64.0" prefHeight="21.0" prefWidth="135.0" text="Nikola" textFill="WHITE">
-=======
-            <Label fx:id="firstNameLabel" layoutX="33.0" layoutY="64.0" prefHeight="21.0" prefWidth="135.0">
->>>>>>> refs/remotes/origin/master
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -128,11 +115,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-<<<<<<< HEAD
             <Label fx:id="lastNameLabel" layoutX="33.0" layoutY="121.0" prefHeight="21.0" prefWidth="140.0" text="Tomic" textFill="WHITE">
-=======
-            <Label fx:id="lastNameLabel" layoutX="33.0" layoutY="121.0" prefHeight="21.0" prefWidth="140.0">
->>>>>>> refs/remotes/origin/master
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
