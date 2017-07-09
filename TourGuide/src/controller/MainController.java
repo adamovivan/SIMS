@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.ResourceBundle;
 
+import application.Account;
 import application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -24,6 +25,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -297,6 +299,11 @@ public class MainController implements Initializable {
 
 	}
 
+	public void logOut(){
+		Application.getInstance().user = null;
+		Controller.getInstance().setLogInScene();
+	}
+	
 	public void searchForChanged() {
 		System.out.println(searchForCombo.getValue());
 	}
@@ -314,4 +321,14 @@ public class MainController implements Initializable {
 
 	}
 
+	public void setProfile(){
+		Account user = Application.getInstance().user;
+		
+		firstNameLabel.setText(user.getPerson().getFirstName());
+		lastNameLabel.setText(user.getPerson().getLastName());
+		userName.setText(user.getUsername());
+		//mainCtrl.descriptionPanel.setText(user.getDescription());  // TODO label maybe instead of description panel?? 
+		userPhoto.setImage(new Image(user.getPicture()));
+		
+	}
 }

@@ -39,21 +39,6 @@ public class Tour {
 		this.tourName = tourName;
 	}
 
-	/*
-	public Tour deepCopy(){
-		Tour retVal = new Tour();
-		retVal.setAvailableSpots(this.availableSpots);
-		retVal.setDownVotes(this.downVotes);
-		retVal.setGuide(this.guide.deepCopy());
-		retVal.setMaxSpots(this.maxSpots);
-		retVal.setRoute(this.route.deepCopy());
-		retVal.setTourName(this.tourName);
-		retVal.setTourType(this.tourType.deepCopy());
-		retVal.setUpVotes(this.upVotes);
-
-		return retVal;
-	}
-	*/
 
 	public String getTourName() {
 		return tourName;
@@ -130,4 +115,5 @@ public class Tour {
 				+ ", tourType=" + tourType + "]";
 	}
 
+	
 }

@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -84,6 +83,8 @@ public class SignUpController implements Initializable {
 	}
 
 	public boolean registration(){
+		imageURI = "/icons/avatar.jpg";
+		
 		if(firstName.getText().equals("")){
 			labelStatus.setText("Field First Name can't be empty"); return false;
 		}
@@ -133,6 +134,9 @@ public class SignUpController implements Initializable {
 		Account account = new Account(username.getText(), password.getText(), description.getText(), imageURI,
 				new Person(firstName.getText(), lastName.getText(), umcn.getText(), address.getText(), null));
 
+		// set user 
+		Application.getInstance().user = account;
+		
 		// adding new account
 		Application.getInstance().accounts.add(account);
 
@@ -141,7 +145,10 @@ public class SignUpController implements Initializable {
 
 		// change scene
 		Controller.getInstance().setMainViewScene();
+		
+		// set state
 		Application.getInstance().changeState(new LogIn());
+		
 	}
 
 	public void clearUserPass() {

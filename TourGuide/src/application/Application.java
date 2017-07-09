@@ -41,10 +41,11 @@ public class Application {
 	public Collection<Guide> guides;
 	public Collection<Tourist> tourists;
 	public State state = null;
-
+	public Account user;
+	
 	// TODO set this based on user that is logged in
 	public String userTypeLogged;
-
+	
 	public static Application getInstance(){
 		if(instance == null)
 			instance = new Application();
@@ -75,7 +76,12 @@ public class Application {
 				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
 
 				System.out.println(tours.toString());
-
+				cities = toursMapper.readValue(new File("data/cities.json"), new TypeReference<List<City>>(){});
+				cities.add(new City("Subotica", 24000));
+				cities.add(new City("Novi Sad", 21000));
+				cities.add(new City("Beograd", 11000));
+				
+				
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -463,5 +469,25 @@ public class Application {
 			e.printStackTrace();
 		}
 	}
+	
+	// TODO add method to class diagram
+		public void dumpCities(){
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+			try {
+
+				mapper.writeValue(new File("data/cities.json"), cities);
+			} catch (JsonGenerationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 }
