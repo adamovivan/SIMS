@@ -65,7 +65,7 @@ public class Application {
 			try {
 				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
 				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
-				cities = toursMapper.readValue(new File("data/cities.json"), new TypeReference<List<Tour>>(){});
+				cities = toursMapper.readValue(new File("data/cities.json"), new TypeReference<List<City>>(){});
 				cities.add(new City("Subotica", 24000));
 				cities.add(new City("Novi Sad", 21000));
 				cities.add(new City("Beograd", 11000));
@@ -83,32 +83,6 @@ public class Application {
 				e.printStackTrace();
 			}
 
-		//readTours();
-
-	}
-
-	private void readTours() {
-		ObjectMapper toursMapper = new ObjectMapper();
-		ArrayList<Tour> temp = null;
-		
-		try {
-			temp = (ArrayList<Tour>) toursMapper.readValue(new File("data/tours.json"), temp.getClass());
-		} catch (JsonParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		for(Object o : temp){
-			Tour t = new Tour();
-			t = toursMapper.convertValue(o, Tour.class);
-			tours.add(t);
-		}
 	}
 
 	public Account getAccountByUsername(String userName){
