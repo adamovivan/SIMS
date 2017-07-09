@@ -16,8 +16,7 @@ import tour.Tour;
 
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Guide extends Account {
-	
-	public Guide(){}
+
 
 	public Guide(){
 	}
@@ -28,7 +27,7 @@ public class Guide extends Account {
 	}
 
 	public java.util.Collection<Route> route;
-	
+
 	public void makeTour(ArrayList<Tour> tours) {
 		// TODO: implement
 	}
@@ -76,5 +75,5 @@ public class Guide extends Account {
 		return "Guide [route=" + route + "]";
 	}
 
-	
+
 }

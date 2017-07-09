@@ -22,14 +22,11 @@ public class EditProfileController implements Initializable {
 		// TODO Auto-generated method stub
 
 	}
-	
-<<<<<<< HEAD
+
 	//TODO CHANGE STATE
-=======
->>>>>>> refs/remotes/origin/master
 	public void cancel(ActionEvent event){
 		Controller.getInstance().setMainViewScene();
-		
+
 	}
 
 }

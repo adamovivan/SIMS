@@ -14,22 +14,9 @@ public class Main extends Application {
 
 		application.Application app = application.Application.getInstance();
 		Controller controller = Controller.getInstance();
-<<<<<<< HEAD
-
 		controller.init(primaryStage);
 		//TestData t = new TestData();
 		//t.dumpData();
-=======
-		File f = new File("data/accounts.json");
-		if(!f.exists())
-			System.out.println("NO FILE!");
-		else
-			System.out.println("FILE OK!");
-		controller.init(primaryStage);
-		TestData t = new TestData();
-		t.dumpData();
-		app.dumpCities();
->>>>>>> refs/remotes/origin/master
 
 		try {
 			Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/logo.png"));

@@ -11,17 +11,6 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Location {
 	private String name;
-	
-	Location(){}
-	
-	
-
-	public Location(String name) {
-		super();
-		this.name = name;
-	}
-
-
 
 	Location() {
 	}
@@ -39,21 +28,9 @@ public class Location {
 		name = newName;
 	}
 
-<<<<<<< HEAD
 	@Override
 	public String toString() {
 		return "Location [name=" + name + "]";
 	}
 
-=======
-
-
-	@Override
-	public String toString() {
-		return "Location [name=" + name + "]";
-	}
-
-	
-	
->>>>>>> refs/remotes/origin/master
 }
