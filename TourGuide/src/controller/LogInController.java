@@ -12,8 +12,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import role.Person;
 import state.GuideMainView;
 import state.LogIn;
 import state.SignUp;
@@ -46,7 +48,6 @@ public class LogInController implements Initializable{
 	@FXML
 	private AnchorPane dragPane;
 
-
 	public void logIn(ActionEvent event) {
 
 		if(checkLogin())
@@ -61,11 +62,16 @@ public class LogInController implements Initializable{
 		
 		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().accounts;
 		
-		if(username.equals("") && password.equals(""))
+		if(username.equals("") && password.equals("")){
+			Application.getInstance().user = new Account("admin", "admin", "", "/icons/avatar.jpg",
+					new Person("", "", "", "", null));
 			return true;
+		}
+			
 
 		for(Account account : accounts){
 			if(username.equals(account.getUsername()) && password.equals(account.getPassword())){
+				Application.getInstance().user = account;
 				return true;
 			}
 		}
@@ -80,6 +86,7 @@ public class LogInController implements Initializable{
 
 	public void loginValid(){
 		Controller.getInstance().setMainViewScene();
+		
 		// if user is Guide (set conditions)
 		if(true){
 			Application.getInstance().changeState(new GuideMainView());
@@ -88,6 +95,7 @@ public class LogInController implements Initializable{
 			Application.getInstance().changeState(new TouristMainView());
 		}
 	}
+
 
 	public void loginCanceled(ActionEvent event) {
 		System.exit(0);

@@ -185,6 +185,7 @@ public class MainController implements Initializable {
 
 	}
 
+<<<<<<< HEAD
 	public void displayCards(Collection<Tour> tours) {
 
 		vbox.getChildren().clear();
@@ -337,6 +338,14 @@ public class MainController implements Initializable {
 	}
 
 	public void searchForChanged() {
+=======
+	public void logOut(){
+		Application.getInstance().user = null;
+		Controller.getInstance().setLogInScene();
+	}
+	
+	public void searchForChanged(){
+>>>>>>> refs/remotes/origin/master
 		System.out.println(searchForCombo.getValue());
 	}
 
@@ -354,6 +363,7 @@ public class MainController implements Initializable {
 
 	public void setProfile(){
 		Account user = Application.getInstance().user;
+<<<<<<< HEAD
 
 		firstNameLabel.setText(user.getPerson().getFirstName());
 		lastNameLabel.setText(user.getPerson().getLastName());
@@ -361,5 +371,14 @@ public class MainController implements Initializable {
 		//mainCtrl.descriptionPanel.setText(user.getDescription());  // TODO label maybe instead of description panel??
 		userPhoto.setImage(new Image(user.getPicture()));
 
+=======
+		
+		firstNameLabel.setText(user.getPerson().getFirstName());
+		lastNameLabel.setText(user.getPerson().getLastName());
+		userName.setText(user.getUsername());
+		//mainCtrl.descriptionPanel.setText(user.getDescription());  // TODO label maybe instead of description panel?? 
+		userPhoto.setImage(new Image(user.getPicture()));
+		
+>>>>>>> refs/remotes/origin/master
 	}
 }

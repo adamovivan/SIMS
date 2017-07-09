@@ -32,7 +32,10 @@ public class Route {
 		return checkPoint;
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
 
 	public void setCheckPoint(java.util.Collection<CheckPoint> newCheckPoint) {
 		removeAllCheckPoint();

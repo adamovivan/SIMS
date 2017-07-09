@@ -41,10 +41,14 @@ public class Application {
 	public Collection<Tourist> tourists;
 	public State state = null;
 	public Account user;
+<<<<<<< HEAD
 
 	// TODO set this based on user that is logged in
 	public String userTypeLogged;
 
+=======
+	
+>>>>>>> refs/remotes/origin/master
 	public static Application getInstance(){
 		if(instance == null)
 			instance = new Application();
@@ -69,11 +73,15 @@ public class Application {
 	private void init(){
 		ObjectMapper accountMapper = new ObjectMapper();
 		ObjectMapper toursMapper = new ObjectMapper();
+<<<<<<< HEAD
 		ObjectMapper cityMapper = new ObjectMapper();
+=======
+>>>>>>> refs/remotes/origin/master
 
 			try {
 				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
 				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
+<<<<<<< HEAD
 
 				System.out.println(tours.toString());
 				cities = cityMapper.readValue(new File("data/cities.json"), new TypeReference<List<City>>(){});
@@ -82,10 +90,23 @@ public class Application {
 				cities.add(new City("Beograd", 11000));
 
 
+=======
+				cities = toursMapper.readValue(new File("data/cities.json"), new TypeReference<List<City>>(){});
+				cities.add(new City("Subotica", 24000));
+				cities.add(new City("Novi Sad", 21000));
+				cities.add(new City("Beograd", 11000));
+				
+				
+>>>>>>> refs/remotes/origin/master
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (JsonMappingException e) {
+<<<<<<< HEAD
+=======
+				
+				// if file is empty
+>>>>>>> refs/remotes/origin/master
 				e.printStackTrace();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
@@ -469,6 +490,26 @@ public class Application {
 			e.printStackTrace();
 		}
 	}
+	
+	// TODO add method to class diagram
+		public void dumpCities(){
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+			try {
+
+				mapper.writeValue(new File("data/cities.json"), cities);
+			} catch (JsonGenerationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 	// TODO add method to class diagram
 		public void dumpCities(){
