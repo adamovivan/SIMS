@@ -70,4 +70,16 @@
     "address" : "",
     "city" : null
   }
+}, {
+  "username" : "jeca",
+  "password" : "pereca",
+  "description" : "",
+  "picture" : "/icons/avatar.jpg",
+  "person" : {
+    "firstName" : "Jelena",
+    "lastName" : "Maravic",
+    "umcn" : "54151455",
+    "address" : "NekaAdresa",
+    "city" : null
+  }
 } ]

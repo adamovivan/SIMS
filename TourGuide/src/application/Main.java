@@ -7,6 +7,7 @@ import data.TestData;
 import javafx.application.Application;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import tour.City;
 
 
 public class Main extends Application {
@@ -24,7 +25,7 @@ public class Main extends Application {
 		controller.init(primaryStage);
 		TestData t = new TestData();
 		t.dumpData();
-
+		app.dumpCities();
 
 		try {
 			Image applicationIcon = new Image(getClass().getResourceAsStream("/icons/logo.png"));

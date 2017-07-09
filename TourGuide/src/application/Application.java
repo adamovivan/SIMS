@@ -65,6 +65,11 @@ public class Application {
 			try {
 				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
 				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
+				cities = toursMapper.readValue(new File("data/cities.json"), new TypeReference<List<Tour>>(){});
+				cities.add(new City("Subotica", 24000));
+				cities.add(new City("Novi Sad", 21000));
+				cities.add(new City("Beograd", 11000));
+				
 				
 			} catch (JsonParseException e) {
 				// TODO Auto-generated catch block
@@ -475,5 +480,25 @@ public class Application {
 			e.printStackTrace();
 		}
 	}
+	
+	// TODO add method to class diagram
+		public void dumpCities(){
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+			try {
+
+				mapper.writeValue(new File("data/cities.json"), cities);
+			} catch (JsonGenerationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 
 }
