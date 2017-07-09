@@ -17,6 +17,9 @@ import tour.Tour;
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Guide extends Account {
 
+	public Guide(){
+	}
+
 	public Guide(String username, String password, String description, String picture, Person person) {
 		super(username, password, description, picture, person);
 		// TODO Auto-generated constructor stub
@@ -36,12 +39,6 @@ public class Guide extends Account {
 		if (route == null)
 			route = new java.util.HashSet<Route>();
 		return route;
-	}
-
-	public java.util.Iterator getIteratorRoute() {
-		if (route == null)
-			route = new java.util.HashSet<Route>();
-		return route.iterator();
 	}
 
 	public void setRoute(java.util.Collection<Route> newRoute) {
