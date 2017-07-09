@@ -118,6 +118,11 @@ public class MainController implements Initializable{
 
 	}
 
+	public void logOut(){
+		Application.getInstance().user = null;
+		Controller.getInstance().setLogInScene();
+	}
+	
 	public void searchForChanged(){
 		System.out.println(searchForCombo.getValue());
 	}
