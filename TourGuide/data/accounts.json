@@ -2,12 +2,84 @@
   "username" : "pera123",
   "password" : "perar",
   "description" : "",
-  "picture" : null,
+  "picture" : "/icons/avatar.jpg",
   "person" : {
     "firstName" : "Pera",
     "lastName" : "Peric",
     "umcn" : "12345",
     "address" : "",
+    "city" : null
+  }
+}, {
+  "username" : "ivann",
+  "password" : "ivan123",
+  "description" : "karakondzula",
+  "picture" : "/icons/avatar.jpg",
+  "person" : {
+    "firstName" : "Ivan",
+    "lastName" : "Adamov",
+    "umcn" : "1231121",
+    "address" : "",
+    "city" : null
+  }
+}, {
+  "username" : "m.lojko",
+  "password" : "mile700",
+  "description" : "",
+  "picture" : "/icons/avatar.jpg",
+  "person" : {
+    "firstName" : "Milojko",
+    "lastName" : "Jovanovic",
+    "umcn" : "32523",
+    "address" : "",
+    "city" : null
+  }
+}, {
+  "username" : "jovaa",
+  "password" : "jova123",
+  "description" : "",
+  "picture" : "/icons/avatar.jpg",
+  "person" : {
+    "firstName" : "Jova",
+    "lastName" : "Jovic",
+    "umcn" : "235233",
+    "address" : "",
+    "city" : null
+  }
+}, {
+  "username" : "mara123",
+  "password" : "mmm",
+  "description" : "",
+  "picture" : "/icons/avatar.jpg",
+  "person" : {
+    "firstName" : "Marija",
+    "lastName" : "Maric",
+    "umcn" : "325235",
+    "address" : "",
+    "city" : null
+  }
+}, {
+  "username" : "milica555",
+  "password" : "mimi",
+  "description" : "",
+  "picture" : "/icons/avatar.jpg",
+  "person" : {
+    "firstName" : "Milica",
+    "lastName" : "Milic",
+    "umcn" : "35252",
+    "address" : "",
+    "city" : null
+  }
+}, {
+  "username" : "jeca",
+  "password" : "pereca",
+  "description" : "",
+  "picture" : "/icons/avatar.jpg",
+  "person" : {
+    "firstName" : "Jelena",
+    "lastName" : "Maravic",
+    "umcn" : "54151455",
+    "address" : "NekaAdresa",
     "city" : null
   }
 } ]
