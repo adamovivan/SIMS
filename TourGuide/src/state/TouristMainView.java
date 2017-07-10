@@ -6,6 +6,9 @@
 
 package state;
 
+import application.Main;
+import controller.MainController;
+
 public class TouristMainView extends State {
 	public int doo() {
 		// TODO: implement
@@ -14,6 +17,7 @@ public class TouristMainView extends State {
 
 	public int entry() {
 		System.out.println("TouristMain entry");
+		MainController.getInstance().disableMyTours();
 		return 0;
 	}
 

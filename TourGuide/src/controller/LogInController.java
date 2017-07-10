@@ -50,18 +50,20 @@ public class LogInController implements Initializable{
 
 	public void logIn(ActionEvent event) {
 
-		if(checkLogin(this.username.getText(), this.password.getText()))
+		if(checkLogin())
 			loginValid();
 		else
 			loginFail();
 	}
 
-	public boolean checkLogin(String username, String password) {
+	public boolean checkLogin() {
+		String username = this.username.getText();
+		String password = this.password.getText();
 
 		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().accounts;
 
 		if(username.equals("") && password.equals("")){
-			Application.getInstance().user = new Account("admin", "admin", "", "/icons/avatar.jpg",
+			Application.getInstance().user = new Account("admin", "admin", "", "/icons/userAvatar.png",
 					new Person("", "", "", "", null));
 			return true;
 		}

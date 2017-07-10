@@ -6,6 +6,8 @@
 
 package state;
 
+import controller.MainController;
+
 public class GuideMainView extends State {
 	public int doo() {
 		// TODO: implement
@@ -14,6 +16,7 @@ public class GuideMainView extends State {
 
 	public int entry() {
 		System.out.println("GuideMain entry");
+		MainController.getInstance().enableMyTours();
 		return 0;
 	}
 

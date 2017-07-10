@@ -113,6 +113,9 @@ public class MainController implements Initializable {
 	@FXML
 	public AnchorPane dragPane;
 
+	@FXML
+	public Button myTours;
+
 	ObservableList<String> searchForList = FXCollections.observableArrayList("City", "Place", "Tour", "Guide");
 	ObservableList<String> sortByList = FXCollections.observableArrayList("Most Popular", "Newest", "Oldest");
 	SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 99, 1);
@@ -121,7 +124,9 @@ public class MainController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// enter -> search
-		searchField.setOnAction((event) -> {searchClicked();});
+		searchField.setOnAction((event) -> {
+			searchClicked();
+		});
 
 		// init searchForCombo
 		searchForCombo.setOnAction((event) -> {
@@ -243,9 +248,9 @@ public class MainController implements Initializable {
 		}
 
 		// if no search results
-		if (currentlyShown.size() == 0){
+		if (currentlyShown.size() == 0) {
 			emptyField();
-			return  0;
+			return 0;
 		}
 
 		// sort by
@@ -282,7 +287,7 @@ public class MainController implements Initializable {
 		}
 	}
 
-	public void searchClicked(){
+	public void searchClicked() {
 		vbox.getChildren().clear();
 		search(searchField.getText(), searchForCombo.getValue(), sortByCombo.getValue());
 		displayCards(currentlyShown);
@@ -327,12 +332,12 @@ public class MainController implements Initializable {
 		System.out.println("Not implemented!");
 	}
 
-	public void logOut(){
+	public void logOut() {
 		Application.getInstance().user = null;
 		Controller.getInstance().setLogInScene();
 	}
 
-	public void searchForChanged(){
+	public void searchForChanged() {
 		System.out.println(searchForCombo.getValue());
 	}
 
@@ -341,20 +346,29 @@ public class MainController implements Initializable {
 		displayCards(currentlyShown);
 	}
 
-	public void editUserProfileClicked() {
+	// enable my tours button
+	public void enableMyTours() {
+		myTours.setDisable(false);
+	}
 
+	// disable my tours button
+	public void disableMyTours() {
+		myTours.setDisable(true);
+	}
+
+	public void editUserProfileClicked() {
 		Controller.getInstance().setEditProfileScene();
 		Application.getInstance().changeState(new EditProfile());
 
 	}
 
-	public void setProfile(){
+	public void setProfile() {
 		Account user = Application.getInstance().user;
 
 		firstNameLabel.setText(user.getPerson().getFirstName());
 		lastNameLabel.setText(user.getPerson().getLastName());
 		userName.setText(user.getUsername());
-		descriptionPanel.setText(user.getDescription()); 
+		descriptionPanel.setText(user.getDescription());
 		userPhoto.setImage(new Image(user.getPicture()));
 
 	}
