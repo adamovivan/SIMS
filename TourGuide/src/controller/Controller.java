@@ -69,7 +69,7 @@ public class Controller {
 			Parent editProfileRoot = editProfileLoader.load();
 			sceneEditProfile = new Scene(editProfileRoot);
 
-			// edit profile scene
+			// extended card scene
 			ExtendedCardController extendedCardController = ExtendedCardController.getInstance();
 			FXMLLoader extendedCardLoader = new FXMLLoader(getClass().getResource("../view/ExtendedCardView.fxml"));
 			extendedCardLoader.setController(extendedCardController);
@@ -107,6 +107,7 @@ public class Controller {
 
 	public void setEditProfileScene() {
 		primaryStage.close();
+		EditProfileController.getInstance().setProfile();
 		primaryStage.setScene(sceneEditProfile);
 		primaryStage.show();
 	}
