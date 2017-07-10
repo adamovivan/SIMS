@@ -73,6 +73,7 @@ public class Application {
 
 			try {
 				accounts = accountMapper.readValue(new File("data/accounts.json"),  new TypeReference<List<Account>>(){});
+
 				tours = toursMapper.readValue(new File("data/tours.json"), new TypeReference<List<Tour>>(){});
 				cities = cityMapper.readValue(new File("data/cities.json"), new TypeReference<List<City>>(){});
 				cities.add(new City("Subotica", 24000));
@@ -81,13 +82,10 @@ public class Application {
 
 
 			} catch (JsonParseException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (JsonMappingException e) {
-				// if file is emtpy 
 				//e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -234,7 +232,7 @@ public class Application {
 		// TODO: implement
 	}
 
-	
+
 	public Account getUser() {
 		return user;
 	}
