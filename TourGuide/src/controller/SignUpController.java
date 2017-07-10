@@ -85,6 +85,7 @@ public class SignUpController implements Initializable {
 
 	public boolean registration(){
 		imageURI = "/icons/avatar.jpg";
+		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().getAccount();
 		
 		if(firstName.getText().equals("")){
 			labelStatus.setText("Field First Name can't be empty"); return false;
@@ -95,13 +96,13 @@ public class SignUpController implements Initializable {
 		else if(umcn.getText().equals("")){
 			labelStatus.setText("Field UMCN can't be empty"); return false;
 		}
-		else if(umcnExists()){
+		else if(umcnExists(accounts, umcn.getText())){
 			labelStatus.setText("UMCN already exists"); return false;
 		}
 		else if(username.getText().equals("")){
 			labelStatus.setText("Field Username can't be empty"); return false;
 		}
-		else if(usernameExists()){
+		else if(usernameExists(accounts, username.getText())){
 			labelStatus.setText("Username already exists"); return false;
 		}
 		else if(password.getText().equals("")){
@@ -113,11 +114,10 @@ public class SignUpController implements Initializable {
 		}
 	}
 	
-	public boolean usernameExists(){
-		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().getAccount();
-		
+	public boolean usernameExists(ArrayList<Account> accounts, String username){
+			
 		for(Account a : accounts){
-			if(a.getUsername().equals(username.getText())) {
+			if(a.getUsername().equals(username)) {
 				return true;
 				}
 		}
@@ -125,11 +125,10 @@ public class SignUpController implements Initializable {
 		return false;
 	}
 	
-	public boolean umcnExists(){
-		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().getAccount();
+	public boolean umcnExists(ArrayList<Account> accounts,  String umcn){
 		
 		for(Account a : accounts){
-			if(a.getPerson().getUmcn().equals(umcn.getText())) {
+			if(a.getPerson().getUmcn().equals(umcn)) {
 				return true;
 				}
 		}
@@ -208,6 +207,22 @@ public class SignUpController implements Initializable {
             	Controller.getInstance().primaryStage.setY(event.getScreenY() + yOffset);
             }
         });
+	}
+
+	public TextField getUmcn() {
+		return umcn;
+	}
+
+	public void setUmcn(String umcn) {
+		this.umcn.setText(umcn);
+	}
+
+	public TextField getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username.setText(username);
 	}
 
 
