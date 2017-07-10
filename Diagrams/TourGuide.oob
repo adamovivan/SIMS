@@ -6368,8 +6368,8 @@ Shadow=0</a:DisplayPreferences>
 <a:PaperSource>15</a:PaperSource>
 <c:Symbols>
 <o:InteractionSymbol Id="o176">
-<a:ModificationDate>1499692424</a:ModificationDate>
-<a:Rect>((-14007,-29881), (22129,15268))</a:Rect>
+<a:ModificationDate>1499700853</a:ModificationDate>
+<a:Rect>((-14387,-29881), (22129,15268))</a:Rect>
 <a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:BaseSymbol.Flags>4</a:BaseSymbol.Flags>
 <a:LineColor>15257808</a:LineColor>
@@ -6618,7 +6618,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </o:MessageSymbol>
 <o:MessageSymbol Id="o204">
 <a:ModificationDate>1499692210</a:ModificationDate>
-<a:Rect>((-11462,3875), (-2088,5489))</a:Rect>
+<a:Rect>((-11462,3875), (-2088,5367))</a:Rect>
 <a:ListOfPoints>((-10375,4575),(-3175,4575))</a:ListOfPoints>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>12615808</a:LineColor>
@@ -6639,7 +6639,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </o:MessageSymbol>
 <o:MessageSymbol Id="o206">
 <a:ModificationDate>1499691625</a:ModificationDate>
-<a:Rect>((-17199,6050), (-9249,7674))</a:Rect>
+<a:Rect>((-17199,6050), (-9249,7580))</a:Rect>
 <a:ListOfPoints>((-16074,6750),(-10375,6750))</a:ListOfPoints>
 <a:ArrowStyle>8</a:ArrowStyle>
 <a:LineColor>12615808</a:LineColor>
@@ -6823,9 +6823,9 @@ DISPNAME 0 Arial,8,U</a:FontList>
 </c:Object>
 </o:UMLObjectSequenceSymbol>
 <o:InteractionFragmentSymbol Id="o221">
-<a:ModificationDate>1499692424</a:ModificationDate>
+<a:ModificationDate>1499700853</a:ModificationDate>
 <a:RegionConditionPositionList>((2500,300),(300,300))</a:RegionConditionPositionList>
-<a:Rect>((-12808,-25573), (20342,-181))</a:Rect>
+<a:Rect>((-13387,-25573), (20341,-181))</a:Rect>
 <a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>15257808</a:LineColor>
 <a:LineWidth>1</a:LineWidth>
@@ -8171,11 +8171,11 @@ LABL 0 Arial,8,N</a:FontList>
 <a:ObjectID>89F5BBB1-6202-4187-808C-EFAD07AFE3B1</a:ObjectID>
 <a:CreationDate>1499691436</a:CreationDate>
 <a:Creator>Jelena Maravic</a:Creator>
-<a:ModificationDate>1499691607</a:ModificationDate>
+<a:ModificationDate>1499700617</a:ModificationDate>
 <a:Modifier>Jelena Maravic</a:Modifier>
 <a:Size>4374</a:Size>
 <a:FragmentType>opt</a:FragmentType>
-<a:InteractionFragment.Condition>user = null</a:InteractionFragment.Condition>
+<a:InteractionFragment.Condition>checkLogin() = false</a:InteractionFragment.Condition>
 </o:InteractionFragment>
 <o:InteractionFragment Id="o307">
 <a:ObjectID>61E11DC7-0D27-4B8F-8511-3AF5A09FA482</a:ObjectID>
@@ -12838,7 +12838,7 @@ DESTINATION 0 Arial,8,N</a:FontList>
 </o:FlowSymbol>
 <o:FlowSymbol Id="o482">
 <a:ModificationDate>1499699235</a:ModificationDate>
-<a:Rect>((8085,2374), (14153,3969))</a:Rect>
+<a:Rect>((8085,2374), (14153,3968))</a:Rect>
 <a:ListOfPoints>((8485,3149),(11119,3149),(11119,2999),(13753,2999))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>

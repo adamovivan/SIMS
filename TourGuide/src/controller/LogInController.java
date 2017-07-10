@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import role.Person;
@@ -62,7 +63,7 @@ public class LogInController implements Initializable{
 		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().accounts;
 
 		if(username.equals("") && password.equals("")){
-			Application.getInstance().user = new Account("admin", "admin", "", "/icons/userAvatar.png",
+			Application.getInstance().user = new Account("admin", "admin", "", "/icons/avatar.jpg",
 					new Person("", "", "", "", null));
 			return true;
 		}

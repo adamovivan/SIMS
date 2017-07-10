@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="TourGuide/src"/>
+	<classpathentry kind="lib" path="TourGuide/lib/jackson-annotations-2.4.3.jar"/>
+	<classpathentry kind="lib" path="TourGuide/lib/jackson-core-2.4.3.jar"/>
+	<classpathentry kind="lib" path="TourGuide/lib/jackson-databind-2.4.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
