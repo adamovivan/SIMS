@@ -120,6 +120,9 @@ public class MainController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		// enter -> search
+		searchField.setOnAction((event) -> {searchClicked();});
+
 		// init searchForCombo
 		searchForCombo.setOnAction((event) -> {
 			searchForChanged();
@@ -161,9 +164,7 @@ public class MainController implements Initializable {
 
 		// connect search
 		searchImage.setOnMouseClicked((event) -> {
-			vbox.getChildren().clear();
-			search(searchField.getText(), searchForCombo.getValue(), sortByCombo.getValue());
-			displayCards(currentlyShown);
+			searchClicked();
 		});
 
 		// make window draggable
@@ -192,29 +193,21 @@ public class MainController implements Initializable {
 		for (Tour t : tours) {
 
 			CardController cardCtrl = new CardController();
-
 			FXMLLoader cardLoader = new FXMLLoader(getClass().getResource("../view/card.fxml"));
-
 			cardLoader.setController(cardCtrl);
-
 			Parent cardRoot = null;
 
 			try {
 				cardRoot = cardLoader.load();
-
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 			cardCtrl.setData(t);
 			vbox.getChildren().add(cardRoot);
 		}
-
 	}
 
 	// search + sort by
-
-	// returns number of items found
 	public int search(String searchText, String searchParam, String sortByValue) {
 
 		// clear previous search
@@ -269,7 +262,6 @@ public class MainController implements Initializable {
 
 	public void sortBy(String param) {
 
-		// TODO Auto-generated method stub
 		switch (param) {
 
 		case "Most Popular":
@@ -288,6 +280,12 @@ public class MainController implements Initializable {
 			System.out.println("Wrong combo selection!");
 			break;
 		}
+	}
+
+	public void searchClicked(){
+		vbox.getChildren().clear();
+		search(searchField.getText(), searchForCombo.getValue(), sortByCombo.getValue());
+		displayCards(currentlyShown);
 	}
 
 	private void sortByOldest() {

@@ -12,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import role.Person;
@@ -59,15 +58,15 @@ public class LogInController implements Initializable{
 	public boolean checkLogin() {
 		String username = this.username.getText();
 		String password = this.password.getText();
-		
+
 		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().accounts;
-		
+
 		if(username.equals("") && password.equals("")){
-			Application.getInstance().user = new Account("admin", "admin", "", "/icons/avatar.jpg",
+			Application.getInstance().user = new Account("admin", "admin", "", "/icons/userAvatar.png",
 					new Person("", "", "", "", null));
 			return true;
 		}
-			
+
 
 		for(Account account : accounts){
 			if(username.equals(account.getUsername()) && password.equals(account.getPassword())){
@@ -75,10 +74,10 @@ public class LogInController implements Initializable{
 				return true;
 			}
 		}
-		
+
 		return false;
 	}
-	
+
 	public void loginFail(){
 		labelStatus.setText("Login Failed");
 		Application.getInstance().changeState(new LogIn());
@@ -86,7 +85,7 @@ public class LogInController implements Initializable{
 
 	public void loginValid(){
 		Controller.getInstance().setMainViewScene();
-		
+
 		// if user is Guide (set conditions)
 		if(true){
 			Application.getInstance().changeState(new GuideMainView());

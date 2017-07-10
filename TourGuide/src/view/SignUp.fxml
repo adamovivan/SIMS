@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="signUpDragPane" prefHeight="518.0" prefWidth="540.0" stylesheets="@../style/signUpStyle.css" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="signUpDragPane" prefHeight="518.0" prefWidth="540.0" stylesheets="@../style/signUpStyle.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="userPhoto" fitHeight="120.0" fitWidth="127.0" layoutX="54.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
          <image>
-            <Image url="@../icons/avatar.jpg" />
+            <Image url="@../icons/userAvatar.png" />
          </image>
          <effect>
             <InnerShadow color="#0e1114" />
