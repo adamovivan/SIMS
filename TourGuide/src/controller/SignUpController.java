@@ -135,10 +135,10 @@ public class SignUpController implements Initializable {
 				new Person(firstName.getText(), lastName.getText(), umcn.getText(), address.getText(), null));
 
 		// set user 
-		Application.getInstance().user = account;
+		Application.getInstance().setUser(account);
 		
 		// adding new account
-		Application.getInstance().accounts.add(account);
+		Application.getInstance().addAccount(account);
 
 		// save account in file
 		Application.getInstance().dumpAccounts();

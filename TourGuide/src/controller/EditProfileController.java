@@ -71,6 +71,7 @@ public class EditProfileController implements Initializable {
 		firstName.setText(user.getPerson().getFirstName());
 		lastName.setText(user.getPerson().getLastName());
 		
+		umcn.setText(user.getPerson().getUmcn());
 		username.setText(user.getUsername());
 		
 		address.setText(user.getPerson().getAddress());

@@ -234,6 +234,15 @@ public class Application {
 		// TODO: implement
 	}
 
+	
+	public Account getUser() {
+		return user;
+	}
+
+	public void setUser(Account user) {
+		this.user = user;
+	}
+
 	public void changeState(State newState) {
 		this.state.exit();
 		this.state = newState;

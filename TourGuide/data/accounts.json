@@ -61,13 +61,13 @@
 }, {
   "username" : "obama.barak",
   "password" : "obama123",
-  "description" : "",
+  "description" : "I am president!",
   "picture" : "/icons/obama.jpg",
   "person" : {
     "firstName" : "Barak",
     "lastName" : "Obama",
     "umcn" : "35252",
-    "address" : "",
+    "address" : "White House, room 47",
     "city" : null
   }
 }, {
@@ -80,6 +80,18 @@
     "lastName" : "Maravic",
     "umcn" : "54151455",
     "address" : "NekaAdresa",
+    "city" : null
+  }
+}, {
+  "username" : "mika",
+  "password" : "mika",
+  "description" : "",
+  "picture" : "/icons/avatar.jpg",
+  "person" : {
+    "firstName" : "Mika",
+    "lastName" : "Mikic",
+    "umcn" : "23234",
+    "address" : "",
     "city" : null
   }
 } ]

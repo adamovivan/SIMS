@@ -71,7 +71,7 @@ public class LogInController implements Initializable{
 
 		for(Account account : accounts){
 			if(username.equals(account.getUsername()) && password.equals(account.getPassword())){
-				Application.getInstance().user = account;
+				Application.getInstance().setUser(account);
 				return true;
 			}
 		}
