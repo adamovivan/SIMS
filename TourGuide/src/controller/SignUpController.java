@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import application.Account;
@@ -94,17 +95,48 @@ public class SignUpController implements Initializable {
 		else if(umcn.getText().equals("")){
 			labelStatus.setText("Field UMCN can't be empty"); return false;
 		}
+		else if(umcnExists()){
+			labelStatus.setText("UMCN already exists"); return false;
+		}
 		else if(username.getText().equals("")){
 			labelStatus.setText("Field Username can't be empty"); return false;
+		}
+		else if(usernameExists()){
+			labelStatus.setText("Username already exists"); return false;
 		}
 		else if(password.getText().equals("")){
 			labelStatus.setText("Field Password can't be empty"); return false;
 		}
+		
 		else{
 			return true;
 		}
 	}
-
+	
+	public boolean usernameExists(){
+		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().getAccount();
+		
+		for(Account a : accounts){
+			if(a.getUsername().equals(username.getText())) {
+				return true;
+				}
+		}
+		
+		return false;
+	}
+	
+	public boolean umcnExists(){
+		ArrayList<Account> accounts = (ArrayList<Account>) Application.getInstance().getAccount();
+		
+		for(Account a : accounts){
+			if(a.getPerson().getUmcn().equals(umcn.getText())) {
+				return true;
+				}
+		}
+		
+		return false;
+	}
+	
 	public void cancelSignUp(ActionEvent event) {
 		Controller.getInstance().setLogInScene();
 		Application.getInstance().changeState(new LogIn());
